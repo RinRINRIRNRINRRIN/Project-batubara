@@ -21,20 +21,20 @@ namespace ServerSide.Pages_Test
 
         private void frmTest_Load(object sender, EventArgs e)
         {
-            using (var dlg = new frmDialog("ต้องการบันทึกข้อมูลหรือไม่?", "ยืนยัน"))
-            {
-                var result = dlg.ShowDialog(this); // หรือ dlg.ShowDialog();
+            //using (var dlg = new frmDialog("ต้องการบันทึกข้อมูลหรือไม่?", "ยืนยัน"))
+            //{
+            //    var result = dlg.ShowDialog(this); // หรือ dlg.ShowDialog();
 
-                if (result == DialogResult.OK)
-                {
-                    // ผู้ใช้กด “ตกลง”
-                    // ... เขียนโค้ดดำเนินการต่อที่นี่ ...
-                }
-                else
-                {
-                    // ผู้ใช้กด “ยกเลิก” หรือปิดหน้าต่าง
-                }
-            }
+            //    if (result == DialogResult.OK)
+            //    {
+            //        // ผู้ใช้กด “ตกลง”
+            //        // ... เขียนโค้ดดำเนินการต่อที่นี่ ...
+            //    }
+            //    else
+            //    {
+            //        // ผู้ใช้กด “ยกเลิก” หรือปิดหน้าต่าง
+            //    }
+            //}
         }
     }
 }
