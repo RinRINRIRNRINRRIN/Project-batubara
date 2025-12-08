@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E9BC2F45-5688-4256-9B8B-D9AFB89740B7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ServerSide</RootNamespace>
+    <AssemblyName>ServerSide</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.105.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.105.0\lib\netstandard2.0\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML.Parser, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1d5f7376574c51ec, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.Parser.2.0.0\lib\netstandard2.0\ClosedXML.Parser.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DocumentFormat.OpenXml, Version=3.1.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.3.1.1\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml.Framework, Version=3.1.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.Framework.3.1.1\lib\net46\DocumentFormat.OpenXml.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="ESC-POS-USB-NET, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ESC-POS-USB-NET.1.1.3\lib\netstandard2.0\ESC-POS-USB-NET.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.1.0\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.7\lib\net48\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.Core, Version=1.0.3537.50, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.WebView2.1.0.3537.50\lib\net462\Microsoft.Web.WebView2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.WinForms, Version=1.0.3537.50, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.WebView2.1.0.3537.50\lib\net462\Microsoft.Web.WebView2.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.Wpf, Version=1.0.3537.50, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.WebView2.1.0.3537.50\lib\net462\Microsoft.Web.WebView2.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="RBush, Version=4.0.0.0, Culture=neutral, PublicKeyToken=c77e27b81f4d0187, processorArchitecture=MSIL">
+      <HintPath>..\packages\RBush.Signed.4.0.0\lib\net47\RBush.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog, Version=4.3.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.4.3.0\lib\net471\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.Console, Version=6.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Sinks.Console.6.0.0\lib\net471\Serilog.Sinks.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.File, Version=7.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Sinks.File.7.0.0\lib\net471\Serilog.Sinks.File.dll</HintPath>
+    </Reference>
+    <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>..\packages\SixLabors.Fonts.1.0.0\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Common, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.4.6.0\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Channels, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Channels.8.0.0\lib\net462\System.Threading.Channels.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dbcontent\AccountManagementDb.cs" />
+    <Compile Include="Dbcontent\ConnectDb.cs" />
+    <Compile Include="Dbcontent\OrderManagementDb.cs" />
+    <Compile Include="Dbcontent\PermissionDb.cs" />
+    <Compile Include="Dbcontent\PrintDetailDb.cs" />
+    <Compile Include="Dbcontent\WeigthingDetailDb.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Functions\Comport.cs" />
+    <Compile Include="Functions\ThermalPrinter.cs" />
+    <Compile Include="Models\AccountManagementModel.cs" />
+    <Compile Include="Models\FirstWeightModel.cs" />
+    <Compile Include="Models\ImportExcelModel.cs" />
+    <Compile Include="Models\OrderManageModel.cs" />
+    <Compile Include="Models\PermissionModel.cs" />
+    <Compile Include="Models\PrintDetailModel.cs" />
+    <Compile Include="Models\TicketModel.cs" />
+    <Compile Include="Models\SecondWeightModel.cs" />
+    <Compile Include="Models\ThermalPrinterModel.cs" />
+    <Compile Include="Models\WeightDetailModel.cs" />
+    <Compile Include="Pages_Client_Site\frmJobManagementCS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages_Client_Site\frmJobManagementCS.Designer.cs">
+      <DependentUpon>frmJobManagementCS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages_Client_Site\frmLoginCS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages_Client_Site\frmLoginCS.Designer.cs">
+      <DependentUpon>frmLoginCS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages_Client_Site\frmMainCS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages_Client_Site\frmMainCS.Designer.cs">
+      <DependentUpon>frmMainCS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages_Public\frmDbConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages_Public\frmDbConfig.Designer.cs">
+      <DependentUpon>frmDbConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages_Public\frmOrderDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages_Public\frmOrderDetail.Designer.cs">
+      <DependentUpon>frmOrderDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages_Public\frmReportInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages_Public\frmReportInformation.Designer.cs">
+      <DependentUpon>frmReportInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages_Public\frmReportTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages_Public\frmReportTicket.Designer.cs">
+      <DependentUpon>frmReportTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages_Server_Site\frmVerify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages_Server_Site\frmVerify.Designer.cs">
+      <DependentUpon>frmVerify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages_Test\frmTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages_Test\frmTest.Designer.cs">
+      <DependentUpon>frmTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmReport.Designer.cs">
+      <DependentUpon>frmReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages_Client_Site\frmWeighing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages_Client_Site\frmWeighing.Designer.cs">
+      <DependentUpon>frmWeighing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages_Server_Site\frmAccountManagementSS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages_Server_Site\frmAccountManagementSS.Designer.cs">
+      <DependentUpon>frmAccountManagementSS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages_Server_Site\frmImportExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages_Server_Site\frmImportExcel.Designer.cs">
+      <DependentUpon>frmImportExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages_Server_Site\frmLoginSS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages_Server_Site\frmLoginSS.Designer.cs">
+      <DependentUpon>frmLoginSS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages_Server_Site\frmMainSS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages_Server_Site\frmMainSS.Designer.cs">
+      <DependentUpon>frmMainSS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages_Server_Site\frmPermissionSS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages_Server_Site\frmPermissionSS.Designer.cs">
+      <DependentUpon>frmPermissionSS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages_Test\frmPrinterThermal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages_Test\frmPrinterThermal.Designer.cs">
+      <DependentUpon>frmPrinterThermal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\rptTicketCustomer.cs">
+      <DependentUpon>rptTicketCustomer.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\rptTicketTSC.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptTicketTSC.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages_Client_Site\frmJobManagementCS.resx">
+      <DependentUpon>frmJobManagementCS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages_Client_Site\frmLoginCS.resx">
+      <DependentUpon>frmLoginCS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages_Client_Site\frmMainCS.resx">
+      <DependentUpon>frmMainCS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages_Public\frmDbConfig.resx">
+      <DependentUpon>frmDbConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages_Public\frmOrderDetail.resx">
+      <DependentUpon>frmOrderDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages_Public\frmReportInformation.resx">
+      <DependentUpon>frmReportInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages_Public\frmReportTicket.resx">
+      <DependentUpon>frmReportTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages_Server_Site\frmVerify.resx">
+      <DependentUpon>frmVerify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages_Test\frmTest.resx">
+      <DependentUpon>frmTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmReport.resx">
+      <DependentUpon>frmReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages_Client_Site\frmWeighing.resx">
+      <DependentUpon>frmWeighing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages_Server_Site\frmAccountManagementSS.resx">
+      <DependentUpon>frmAccountManagementSS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages_Server_Site\frmImportExcel.resx">
+      <DependentUpon>frmImportExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages_Server_Site\frmLoginSS.resx">
+      <DependentUpon>frmLoginSS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages_Server_Site\frmMainSS.resx">
+      <DependentUpon>frmMainSS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages_Server_Site\frmPermissionSS.resx">
+      <DependentUpon>frmPermissionSS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages_Test\frmPrinterThermal.resx">
+      <DependentUpon>frmPrinterThermal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reports\rptTicketCustomer.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTicketCustomer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptTicketTSC.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTicketTSC.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Serilog.4.3.0\build\Serilog.targets" Condition="Exists('..\packages\Serilog.4.3.0\build\Serilog.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Serilog.4.3.0\build\Serilog.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Serilog.4.3.0\build\Serilog.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Web.WebView2.1.0.3537.50\build\Microsoft.Web.WebView2.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Web.WebView2.1.0.3537.50\build\Microsoft.Web.WebView2.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Web.WebView2.1.0.3537.50\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.3537.50\build\Microsoft.Web.WebView2.targets')" />
+</Project>
