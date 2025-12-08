@@ -102,5 +102,13 @@ namespace ServerSide.Pages_Client_Site
                 webView21.Visible = true; // โหลดสำเร็จ
             }
         }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            frmSetting frmSetting = new frmSetting();
+            this.Hide();
+            frmSetting.ShowDialog();
+            this.Show();
+        }
     }
 }

@@ -146,6 +146,7 @@
             this.guna2Button2.Tag = "Settings";
             this.guna2Button2.Text = "Settings";
             this.guna2Button2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // guna2Button3
             // 
