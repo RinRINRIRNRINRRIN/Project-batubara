@@ -1,11 +1,14 @@
 ﻿using DocumentFormat.OpenXml.Drawing;
 using DocumentFormat.OpenXml.Drawing.Charts;
+using Serilog;
+using ServerSide.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlTypes;
 using System.IO.Ports;
 using System.Linq;
+using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,9 +25,49 @@ namespace ServerSide.Functions
         private string _Comport { get; set; }
         private int _BaudRate { get; set; }
 
-
-
         public string ERR { get; set; }
+
+        public List<PortsModel> getDeviceName()
+        {
+            List<PortsModel> lists = new List<PortsModel>();
+            try
+            {
+                Log.Information("Get all port in computer");
+                // ใช้ WMI ค้นหาอุปกรณ์ที่มีคำว่า (COM...) ในชื่อ
+                using (var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_PnPEntity WHERE Caption like '%(COM%)'"))
+                {
+                    var portnames = SerialPort.GetPortNames();
+                    var portResults = searcher.Get();
+
+                    foreach (var device in portResults)
+                    {
+                        string caption = device["Caption"].ToString(); // ชื่อเต็ม เช่น "Arduino Uno (COM3)"
+
+                        // หาว่า Device นี้คือ COM ไหน
+                        // วิธีง่ายคือดูว่า Caption มีคำว่า COMx ที่เรามีอยู่ในระบบไหม
+                        foreach (string port in portnames)
+                        {
+                            Log.Information("Port in computer : " + port);
+                            if (caption.Contains($"({port})"))
+                            {
+                                lists.Add(new PortsModel
+                                {
+                                    DeviceNames = caption,
+                                    DevicePort = port
+                                });
+                                Log.Information("Define port : " + caption + " : " + port);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ERR = ex.Message;
+                Log.Error("Comport,getDeviceName : " + ex.Message);
+            }
+            return lists;
+        }
 
         public bool Connect(SerialPort _SerialPort)
         {
