@@ -156,6 +156,7 @@
     <Compile Include="Models\ImportExcelModel.cs" />
     <Compile Include="Models\OrderManageModel.cs" />
     <Compile Include="Models\PermissionModel.cs" />
+    <Compile Include="Models\PortsModel.cs" />
     <Compile Include="Models\PrintDetailModel.cs" />
     <Compile Include="Models\TicketModel.cs" />
     <Compile Include="Models\SecondWeightModel.cs" />
