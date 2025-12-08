@@ -20,7 +20,7 @@ namespace ServerSide.Functions
         {
             try
             {
-                Port = ConfigurationManager.AppSettings["COMPORT"];
+                Port = ConfigurationManager.AppSettings["DevicePort"];
 
                 // แปลง string -> int
                 BaudRate = int.Parse(ConfigurationManager.AppSettings["BAUDRATE"]);
@@ -36,6 +36,9 @@ namespace ServerSide.Functions
 
                 // แปลง string -> int
                 Databitsz = int.Parse(ConfigurationManager.AppSettings["DATABIT"]);
+
+                ScaleName = ConfigurationManager.AppSettings["SCALENAME"];
+
             }
             catch (Exception ex)
             {
