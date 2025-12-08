@@ -179,6 +179,12 @@
     <Compile Include="Pages_Client_Site\frmMainCS.Designer.cs">
       <DependentUpon>frmMainCS.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages_Client_Site\frmSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages_Client_Site\frmSetting.Designer.cs">
+      <DependentUpon>frmSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages_Public\frmDbConfig.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -288,6 +294,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages_Client_Site\frmMainCS.resx">
       <DependentUpon>frmMainCS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages_Client_Site\frmSetting.resx">
+      <DependentUpon>frmSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages_Public\frmDbConfig.resx">
       <DependentUpon>frmDbConfig.cs</DependentUpon>
