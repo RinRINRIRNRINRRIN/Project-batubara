@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Serilog;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -16,6 +17,7 @@ namespace ServerSide.Dbcontent
         {
             try
             {
+                Log.Information("Try to connect database");
                 string host = ConfigurationManager.AppSettings["HOST"];
                 string port = ConfigurationManager.AppSettings["PORT"];
                 string db = ConfigurationManager.AppSettings["DB"];
@@ -24,18 +26,17 @@ namespace ServerSide.Dbcontent
                 if (port == "" || port == null)
                 {
                     con = new SqlConnection($"Server={host};Database={db};User Id={user};Password={pass};");
-
                 }
                 else
                 {
                     con = new SqlConnection($"Server={host},{port};Database={db};User Id={user};Password={pass};");
-
                 }
                 con.Open();
             }
             catch (Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error("ConnectDb,Connect : " + ERR);
                 return false;
             }
             return true;
