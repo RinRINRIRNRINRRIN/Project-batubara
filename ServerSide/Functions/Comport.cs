@@ -48,7 +48,56 @@ namespace ServerSide.Functions
         private string _Comport { get; set; }
         private int _BaudRate { get; set; }
 
+        public string Port { get; set; }
+        public int BaudRate { get; set; }
+        public Parity Parityz { get; set; }
+        public StopBits Stopbitz { get; set; }
+        public int Databitsz { get; set; }
+
+        public string ScaleName { get; set; }
+
         public string ERR { get; set; }
+
+        public Parity[] GetParityList()
+        {
+            // ดึงค่า Enum ทั้งหมดแปลงเป็น Array
+            return (Parity[])Enum.GetValues(typeof(Parity));
+        }
+
+        public StopBits[] GetStopBitsList()
+        {
+            // ดึงค่า Enum ทั้งหมดแปลงเป็น Array
+            return (StopBits[])Enum.GetValues(typeof(StopBits));
+        }
+
+        public int[] GetDataBitsList()
+        {
+            // ค่ามาตรฐานคือ 5, 6, 7, 8 (ส่วนใหญ่ใช้ 8)
+            return new int[] { 5, 6, 7, 8 };
+        }
+
+        public List<string> getBaudrate()
+        {
+            List<string> baudRates = new List<string>
+    {
+        "300",
+        "1200",
+        "2400",
+        "4800",
+        "9600",   // Arduino UNO ปกติใช้ค่านี้
+        "14400",
+        "19200",
+        "38400",
+        "57600",
+        "115200", // ESP32 / ESP8266 นิยมใช้ค่านี้
+        "230400",
+        "250000",
+        "500000",
+        "1000000",
+        "2000000"
+    };
+            return baudRates;
+        }
 
         public List<PortsModel> getDeviceName()
         {
