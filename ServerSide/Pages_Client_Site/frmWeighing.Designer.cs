@@ -83,8 +83,8 @@
             this.pnMain = new System.Windows.Forms.Panel();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.btnStausWeight = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnScaleName = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDevicePort = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblStatus = new System.Windows.Forms.Label();
@@ -725,8 +725,8 @@
             this.guna2GroupBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.guna2GroupBox1.BorderRadius = 6;
             this.guna2GroupBox1.Controls.Add(this.btnStausWeight);
-            this.guna2GroupBox1.Controls.Add(this.guna2Button2);
-            this.guna2GroupBox1.Controls.Add(this.guna2Button1);
+            this.guna2GroupBox1.Controls.Add(this.btnScaleName);
+            this.guna2GroupBox1.Controls.Add(this.btnDevicePort);
             this.guna2GroupBox1.Controls.Add(this.guna2Panel2);
             this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.guna2GroupBox1.Font = new System.Drawing.Font("Athiti SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -757,45 +757,45 @@
             this.btnStausWeight.TabIndex = 25;
             this.btnStausWeight.Text = "STABLE";
             // 
-            // guna2Button2
+            // btnScaleName
             // 
-            this.guna2Button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button2.Animated = true;
-            this.guna2Button2.BorderColor = System.Drawing.Color.Silver;
-            this.guna2Button2.BorderRadius = 6;
-            this.guna2Button2.BorderThickness = 1;
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.White;
-            this.guna2Button2.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2Button2.Location = new System.Drawing.Point(800, 122);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(207, 45);
-            this.guna2Button2.TabIndex = 24;
-            this.guna2Button2.Text = "ETD 3590";
+            this.btnScaleName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnScaleName.Animated = true;
+            this.btnScaleName.BorderColor = System.Drawing.Color.Silver;
+            this.btnScaleName.BorderRadius = 6;
+            this.btnScaleName.BorderThickness = 1;
+            this.btnScaleName.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnScaleName.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnScaleName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnScaleName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnScaleName.FillColor = System.Drawing.Color.White;
+            this.btnScaleName.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnScaleName.ForeColor = System.Drawing.Color.DimGray;
+            this.btnScaleName.Location = new System.Drawing.Point(800, 122);
+            this.btnScaleName.Name = "btnScaleName";
+            this.btnScaleName.Size = new System.Drawing.Size(207, 45);
+            this.btnScaleName.TabIndex = 24;
+            this.btnScaleName.Text = "ETD 3590";
             // 
-            // guna2Button1
+            // btnDevicePort
             // 
-            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button1.Animated = true;
-            this.guna2Button1.BorderColor = System.Drawing.Color.Silver;
-            this.guna2Button1.BorderRadius = 6;
-            this.guna2Button1.BorderThickness = 1;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.White;
-            this.guna2Button1.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2Button1.Location = new System.Drawing.Point(800, 173);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(207, 45);
-            this.guna2Button1.TabIndex = 23;
-            this.guna2Button1.Text = "COM 3";
+            this.btnDevicePort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDevicePort.Animated = true;
+            this.btnDevicePort.BorderColor = System.Drawing.Color.Silver;
+            this.btnDevicePort.BorderRadius = 6;
+            this.btnDevicePort.BorderThickness = 1;
+            this.btnDevicePort.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDevicePort.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDevicePort.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDevicePort.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDevicePort.FillColor = System.Drawing.Color.White;
+            this.btnDevicePort.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDevicePort.ForeColor = System.Drawing.Color.DimGray;
+            this.btnDevicePort.Location = new System.Drawing.Point(800, 173);
+            this.btnDevicePort.Name = "btnDevicePort";
+            this.btnDevicePort.Size = new System.Drawing.Size(207, 45);
+            this.btnDevicePort.TabIndex = 23;
+            this.btnDevicePort.Text = "COM 3";
             // 
             // guna2Panel2
             // 
@@ -925,9 +925,9 @@
         private Guna.UI2.WinForms.Guna2CheckBox cbPreview;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btnDevicePort;
         private Guna.UI2.WinForms.Guna2Button btnStausWeight;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button btnScaleName;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private System.Windows.Forms.Label label1;

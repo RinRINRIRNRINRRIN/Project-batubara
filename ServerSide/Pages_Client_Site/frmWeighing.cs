@@ -34,7 +34,7 @@ namespace ServerSide.Pages_Client_Site
         private readonly FirstWeightModel firstWeightModel;
         private WeightDetailModel model;
         private SecondWeightModel secondWeightModel;
-        private Comport comport;
+        private Comport comport = new Comport();
 
         int newWeight = 0;
         int lastWeight = 0;
@@ -60,6 +60,8 @@ namespace ServerSide.Pages_Client_Site
             lblTransportName.Text = _orderModel.TransportName;
             lblEndStationType.Text = _orderModel.EndStationType;
             lblLicense.Text = _orderModel.LIcensePlate;
+            btnScaleName.Text = comport.ScaleName;
+            btnDevicePort.Text = comport.Port;
             if (_orderModel.Status == "Process")
                 lblStatus.Text = "ประเภทชั่ง : ชั่งออก";
             else if (_orderModel.Status == "Planning")
@@ -218,11 +220,12 @@ namespace ServerSide.Pages_Client_Site
             await Task.Delay(2000);
             lblMessageLoader.Text = "เชื่อมต่อเครื่องชั่ง";
             // เชื่อมต่อเครื่องชั่ง
-            comport = new Comport();
             if (!comport.Connect(serialPort1))
             {
                 MessageBox.Show("ไม่สามารถเปิดพอร์ตเครื่องชั่งได้\n" +
                     $"Error : {comport.ERR}", "พอร์ตเครื่องชั่ง", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Close();
+                return;
             }
             await Task.Delay(2000);
             lblMessageLoader.Text = "สำเร็จ";
@@ -241,6 +244,7 @@ namespace ServerSide.Pages_Client_Site
                 {
                     BeginInvoke(new MethodInvoker(delegate ()
                     {
+                        lblWeight.Font = new Font("Athiti", 20, FontStyle.Bold);
                         lblWeight.Text = "SCALE NOT MATCH";
                     }));
                     return;
@@ -248,6 +252,7 @@ namespace ServerSide.Pages_Client_Site
                 newWeight = _weight;
                 BeginInvoke(new MethodInvoker(delegate ()
                 {
+                    lblWeight.Font = new Font("Athiti", 72, FontStyle.Bold);
                     lblWeight.Text = _weight.ToString();
                 }));
 
@@ -280,6 +285,22 @@ namespace ServerSide.Pages_Client_Site
         {
             try
             {
+                // check weight
+
+                int tryInt = 0;
+                if (!int.TryParse(lblWeight.Text, out tryInt))
+                {
+                    MessageBox.Show("ไม่สามารถบันทึกน้ำหนักได้ กรุณาตรวจสอบน้ำหนักอีกครั้ง", "น้ำหนัก Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // เช็คช่วงน้ำหนัก
+                if (tryInt <= 100)
+                {
+                    MessageBox.Show("น้ำหนักบนแท่นต้องมากกว่า 100 Kg", "น้ำหนักน้อย", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 switch (_orderModel.Status)
                 {
                     case "Planning": // fristweight
