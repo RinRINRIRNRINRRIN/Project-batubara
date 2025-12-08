@@ -141,6 +141,17 @@ namespace ServerSide.Functions
             return lists;
         }
 
+        public List<string> getScaleName()
+        {
+            List<string> scaleNames = new List<string>();
+            scaleNames.Add("HP05");
+            scaleNames.Add("3590ET");
+            scaleNames.Add("3590ETD");
+            scaleNames.Add("IQ-355");
+            scaleNames.Add("X3");
+            return scaleNames;
+        }
+
         public bool Connect(SerialPort _SerialPort)
         {
             try
