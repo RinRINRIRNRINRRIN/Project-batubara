@@ -10,5 +10,9 @@ namespace ServerSide.Models
     {
         public string DeviceNames { get; set; }
         public string DevicePort { get; set; }
+        public override string ToString()
+        {
+            return DeviceNames; // ComboBox จะเรียกใช้อันนี้ในการแสดงผล
+        }
     }
 }
