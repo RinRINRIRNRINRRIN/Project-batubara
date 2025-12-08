@@ -230,11 +230,21 @@ namespace ServerSide.Pages_Client_Site
             pnMain.Visible = true;
         }
 
+
         private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
             try
             {
-                int _weight = Comport.ReceiveWeight(serialPort1);
+                string res = comport.ReceiveWeight(serialPort1);
+                int _weight = 0;
+                if (!int.TryParse(res, out _weight))
+                {
+                    BeginInvoke(new MethodInvoker(delegate ()
+                    {
+                        lblWeight.Text = "SCALE NOT MATCH";
+                    }));
+                    return;
+                }
                 newWeight = _weight;
                 BeginInvoke(new MethodInvoker(delegate ()
                 {
