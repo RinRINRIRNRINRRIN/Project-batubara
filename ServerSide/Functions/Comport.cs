@@ -156,8 +156,14 @@ namespace ServerSide.Functions
         {
             try
             {
-                _SerialPort.PortName = _Comport;
-                _SerialPort.BaudRate = _BaudRate;
+                _SerialPort.PortName = Port;
+                _SerialPort.BaudRate = BaudRate;
+                _SerialPort.Parity = Parityz;
+                _SerialPort.StopBits = Stopbitz;
+                _SerialPort.DataBits = Databitsz;
+                if (_SerialPort.IsOpen)
+                    _SerialPort.Close();
+
                 _SerialPort.Open();
             }
             catch (Exception ex)
