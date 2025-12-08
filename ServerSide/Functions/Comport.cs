@@ -194,21 +194,34 @@ namespace ServerSide.Functions
             return true;
         }
 
-        public static int ReceiveWeight(SerialPort _SerialPort)
+        public string ReceiveWeight(SerialPort _SerialPort)
         {
-            int weight = 0;
+            string weightStr = "ERROR";
             try
             {
+                switch (ScaleName)
+                {
+                    case "HP05":
+                        break;
+                    case "3590ETD":
                 string a = _SerialPort.ReadLine();
                 string[] b = a.Split(',');
-                weight = int.Parse(b[2].Trim());
+                        weightStr = b[2].Trim();
+                        break;
+                    default:
+                        Log.Warning("Scale not match : " + ScaleName);
+                        weightStr = "SCALE NOT MATCH";
+                        break;
+                }
+
             }
-            catch
+            catch (Exception ex)
             {
-                // ERR = ex.Message;
-                return weight;
+                ERR = ex.Message;
+                Log.Error("Comports,ReceiveWeight : " + ex.Message);
+                return weightStr;
             }
-            return weight;
+            return weightStr;
         }
 
 
