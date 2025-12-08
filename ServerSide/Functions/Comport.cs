@@ -18,8 +18,31 @@ namespace ServerSide.Functions
     {
         public Comport()
         {
-            _Comport = ConfigurationManager.AppSettings["COMPORT"];
-            _BaudRate = int.Parse(ConfigurationManager.AppSettings["BAUDRATE"]);
+            try
+            {
+                Port = ConfigurationManager.AppSettings["COMPORT"];
+
+                // แปลง string -> int
+                BaudRate = int.Parse(ConfigurationManager.AppSettings["BAUDRATE"]);
+
+                // แก้ไข Parity
+                // รูปแบบ: (Type)Enum.Parse(typeof(Type), ค่าString)
+                string parityStr = ConfigurationManager.AppSettings["PARITY"];
+                Parityz = (Parity)Enum.Parse(typeof(Parity), parityStr);
+
+                // แก้ไข StopBits
+                string stopBitStr = ConfigurationManager.AppSettings["STOPBIT"];
+                Stopbitz = (StopBits)Enum.Parse(typeof(StopBits), stopBitStr);
+
+                // แปลง string -> int
+                Databitsz = int.Parse(ConfigurationManager.AppSettings["DATABIT"]);
+            }
+            catch (Exception ex)
+            {
+
+                Log.Error("Comport,Comport : " + ex.Message);
+            }
+
         }
 
         private string _Comport { get; set; }
