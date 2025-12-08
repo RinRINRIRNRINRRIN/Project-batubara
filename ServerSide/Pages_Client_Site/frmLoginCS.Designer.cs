@@ -72,7 +72,7 @@
             this.gbLoader.CustomBorderThickness = new System.Windows.Forms.Padding(0);
             this.gbLoader.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbLoader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.gbLoader.Location = new System.Drawing.Point(377, 218);
+            this.gbLoader.Location = new System.Drawing.Point(382, 198);
             this.gbLoader.Name = "gbLoader";
             this.gbLoader.Size = new System.Drawing.Size(345, 78);
             this.gbLoader.TabIndex = 18;
@@ -121,6 +121,7 @@
             this.btnLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnLogin.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLogin.Enabled = false;
             this.btnLogin.FillColor = System.Drawing.Color.White;
             this.btnLogin.FillColor2 = System.Drawing.Color.White;
             this.btnLogin.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -249,7 +250,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(736, 335);
+            this.ClientSize = new System.Drawing.Size(735, 335);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.gbLoader);
             this.Controls.Add(this.label2);

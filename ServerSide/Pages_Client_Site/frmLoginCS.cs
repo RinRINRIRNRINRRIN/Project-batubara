@@ -41,6 +41,7 @@ namespace ServerSide.Pages_Client_Site
                 lblMessageSERVER.Text = "เชื่อมต่อฐานข้อมูลสำเร็จ";
                 btnLogin.Enabled = true;
                 gbLoader.Visible = false;
+                btnLogin.Enabled = true;
             }
             else
             {
