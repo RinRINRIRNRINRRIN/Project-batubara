@@ -133,7 +133,7 @@ namespace ServerSide.Pages_Test
                 printer.FullPaperCut();
                 printer.PrintDocument();
             }
-            catch (Exception ex)
+            catch
             {
 
 
