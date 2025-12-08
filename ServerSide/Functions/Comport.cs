@@ -45,8 +45,6 @@ namespace ServerSide.Functions
 
         }
 
-        private string _Comport { get; set; }
-        private int _BaudRate { get; set; }
 
         public string Port { get; set; }
         public int BaudRate { get; set; }
@@ -204,8 +202,8 @@ namespace ServerSide.Functions
                     case "HP05":
                         break;
                     case "3590ETD":
-                string a = _SerialPort.ReadLine();
-                string[] b = a.Split(',');
+                        string a = _SerialPort.ReadLine();
+                        string[] b = a.Split(',');
                         weightStr = b[2].Trim();
                         break;
                     default:
