@@ -44,6 +44,11 @@ namespace ServerSide.Pages_Client_Site
         string SelectScaleName { get; set; }
         string DevicePortName { get; set; }
         string DevicePort { get; set; }
+
+
+        /// <summary>
+        /// แสดง config
+        /// </summary>
         void defineParameter()
         {
             txtEndpoint.Text = ConfigurationManager.AppSettings["EndpointAPIs"];
@@ -68,6 +73,17 @@ namespace ServerSide.Pages_Client_Site
             cbbStopbit.Items.Clear();
             cbbStopbit.Items.Add(ConfigurationManager.AppSettings["STOPBIT"]);
             cbbStopbit.SelectedIndex = 0;
+
+            Log.Information("==Load config");
+            Log.Information($"API Endpoint : " + txtEndpoint.Text);
+            Log.Information($"PrinterThermalName : " + txtPrinterThermal.Text);
+            Log.Information($"ScaleName : " + cbbScaleName.Text);
+            Log.Information($"DevicePort : " + DevicePort);
+            Log.Information($"DevicePortName : " + DevicePortName);
+            Log.Information($"Baudrate : " + BaudRate);
+            Log.Information($"Parity: " + Parityz);
+            Log.Information($"Stopbits: " + Stopbitz);
+            Log.Information($"Databits: " + Databitsz);
         }
 
         private bool ConnectToPort()
@@ -135,10 +151,20 @@ namespace ServerSide.Pages_Client_Site
                     return;
                 }
 
-                Log.Information("Save config");
+                Log.Information("==Save config");
+                Log.Information($"DevicePortName :  " + DevicePortName);
+                Log.Information($"DevicePort :  " + DevicePort);
+                Log.Information($"ScaleName : " + cbbScaleName.Text);
+                Log.Information($"BAUDRATE :  " + cbbBaudrate.Text);
+                Log.Information($"PARITY :  " + cbbParity.Text);
+                Log.Information($"DATABIT :  " + cbbDatabit.Text);
+                Log.Information($"STOPBIT :  " + cbbStopbit.Text);
+                Log.Information($"PrinterName :  " + txtPrinterThermal.Text);
+                Log.Information($"EndpointAPIs :  " + txtEndpoint.Text);
                 Configuration Config1 = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 Config1.AppSettings.Settings["DevicePortName"].Value = DevicePortName;
                 Config1.AppSettings.Settings["DevicePort"].Value = DevicePort;
+                Config1.AppSettings.Settings["ScaleName"].Value = cbbScaleName.Text;
                 Config1.AppSettings.Settings["BAUDRATE"].Value = cbbBaudrate.Text;
                 Config1.AppSettings.Settings["PARITY"].Value = cbbParity.Text;
                 Config1.AppSettings.Settings["DATABIT"].Value = cbbDatabit.Text;
@@ -146,14 +172,6 @@ namespace ServerSide.Pages_Client_Site
                 Config1.AppSettings.Settings["PrinterName"].Value = txtPrinterThermal.Text;
                 Config1.AppSettings.Settings["EndpointAPIs"].Value = txtEndpoint.Text;
 
-                Log.Information($"DevicePortName :  " + DevicePortName);
-                Log.Information($"DevicePort :  " + DevicePortName);
-                Log.Information($"BAUDRATE :  " + cbbBaudrate.Text);
-                Log.Information($"PARITY :  " + cbbParity.Text);
-                Log.Information($"DATABIT :  " + cbbDatabit.Text);
-                Log.Information($"STOPBIT :  " + cbbStopbit.Text);
-                Log.Information($"PrinterName :  " + txtPrinterThermal.Text);
-                Log.Information($"EndpointAPIs :  " + txtEndpoint.Text);
                 Config1.Save(ConfigurationSaveMode.Modified);
                 Log.Information("Save config success");
                 MessageBox.Show("บันทึกรายการสำเร็จ กรุณาเปิดโปรแกรมใหม่อีกคร้ัง", "สำเร็จ", MessageBoxButtons.OK, MessageBoxIcon.Information);
