@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+using Serilog;
 using ServerSide.Dbcontent;
 using ServerSide.Models;
 using ServerSide.Pages_Client_Site;
@@ -37,22 +38,26 @@ namespace ServerSide.Pages
                     break;
                 case "ImportExcel":
                     frmImportExcel frmImportExcel = new frmImportExcel(_employee);
+                    Log.Information("========================== open importexcel from");
                     frmImportExcel.ShowDialog();
                     break;
                 case "AccountManagement":
                     frmAccountManagementSS frmAccountManagementSS = new frmAccountManagementSS();
+                    Log.Information("========================== open AccountManagement from");
                     frmAccountManagementSS.ShowDialog();
                     break;
                 case "TicketReport":
                     break;
                 case "ReportInformation":
                     frmReportInformation frmReportInformation = new frmReportInformation(_employee);
+                    Log.Information("========================== open ReportInformation from");
                     this.Hide();
                     frmReportInformation.ShowDialog();
                     this.Show();
                     break;
                 case "VerifyInformation":
                     frmVerify frmVerify = new frmVerify(_employee);
+                    Log.Information("========================== open VerifyInformation from");
                     this.Hide();
                     frmVerify.ShowDialog();
                     this.Show();

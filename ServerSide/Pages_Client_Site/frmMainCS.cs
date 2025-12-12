@@ -1,6 +1,8 @@
 ﻿using Guna.UI2.WinForms;
+using Serilog;
 using ServerSide.Dbcontent;
 using ServerSide.Models;
+using ServerSide.Pages_Public;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -68,6 +70,7 @@ namespace ServerSide.Pages_Client_Site
         {
             frmJobManagementCS frmJobManagementCS = new frmJobManagementCS(_accountManagementModel);
             this.Hide();
+            Log.Information("========================== open jobmenege from");
             frmJobManagementCS.ShowDialog();
             this.Show();
             //panel1.Controls.Clear();
@@ -81,6 +84,7 @@ namespace ServerSide.Pages_Client_Site
         {
             frmReportInformation frmReportInformation = new frmReportInformation(_accountManagementModel);
             this.Hide();
+            Log.Information("========================== open reportinformation from");
             frmReportInformation.ShowDialog();
             this.Show();
         }
@@ -107,6 +111,7 @@ namespace ServerSide.Pages_Client_Site
         {
             frmSetting frmSetting = new frmSetting();
             this.Hide();
+            Log.Information("========================== open setting from");
             frmSetting.ShowDialog();
             this.Show();
         }
