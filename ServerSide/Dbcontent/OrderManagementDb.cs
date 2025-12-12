@@ -1,4 +1,5 @@
 ﻿
+using Newtonsoft.Json;
 using Serilog;
 using ServerSide.Models;
 using System;
@@ -68,7 +69,7 @@ namespace ServerSide.Dbcontent
             catch (Exception ex)
             {
                 ERR = ex.Message;
-                Log.Error("OrderManagementDb|defineModelList : " + ERR);
+                Log.Error("OrderManagementDb,definModelList : " + ERR);
                 return null;
             }
             return lists;
@@ -92,6 +93,7 @@ namespace ServerSide.Dbcontent
             string orderNumber = "";
             try
             {
+                Log.Information("== อัพเดทเลขที่ ordernumber หลังจากมีการชั่ง first weight");
                 string yy = DateTime.Now.ToString("yy", System.Globalization.CultureInfo.CreateSpecificCulture("EN-en"));
                 string MM = DateTime.Now.ToString("MM", System.Globalization.CultureInfo.CreateSpecificCulture("EN-en"));
                 string dd = DateTime.Now.ToString("dd", System.Globalization.CultureInfo.CreateSpecificCulture("EN-en"));
@@ -109,6 +111,8 @@ namespace ServerSide.Dbcontent
                         orderNumber = $"ORW{yy}{MM}{dd}-{seq}";
                 }
 
+                Log.Information("gen orderNumber : " + orderNumber);
+                Log.Information("Id PK : " + id);
                 sql = "UPDATE Order_Management " +
                     "SET OrderNumber = @OrderNumber " +
                     "WHERE Id = @Id";
@@ -124,7 +128,7 @@ namespace ServerSide.Dbcontent
             catch (Exception ex)
             {
                 ERR = ex.Message;
-                Console.WriteLine(ex.Message);
+                Log.Error("OrderManagementDb,UpdateOrderAndGetOrderId : " + ERR);
                 return false;
             }
             return true;
@@ -155,6 +159,7 @@ namespace ServerSide.Dbcontent
             catch (Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error("OrderManagementDb,UpdateStatus : " + ERR);
                 return false;
             }
             return true;
@@ -186,6 +191,7 @@ namespace ServerSide.Dbcontent
             catch (Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error("OrderManagementDb,UpdateVerifyStatus : " + ERR);
                 return false;
             }
             return true;
@@ -221,6 +227,7 @@ namespace ServerSide.Dbcontent
             catch (Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error("OrderManagementDb,UpdateReferenceNumber : " + ERR);
                 return false;
             }
             return true;
@@ -249,6 +256,7 @@ namespace ServerSide.Dbcontent
             catch (Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error("OrderManagementDb,UpdateNetWeight : " + ERR);
                 return false;
             }
             return true;
@@ -263,6 +271,7 @@ namespace ServerSide.Dbcontent
             List<OrderManageModel> list = new List<OrderManageModel>();
             try
             {
+                Log.Information("== get jobnumber status is planning");
                 sql = "SELECT * FROM Order_Management WHERE Status = 'Planning' or Status = 'Process'";
                 using (SqlDataAdapter da = new SqlDataAdapter(sql, con))
                 {
@@ -271,10 +280,14 @@ namespace ServerSide.Dbcontent
                     if (tb != null && tb.Rows.Count > 0)
                         list = defineModelList(tb);
                 }
+                string _json = JsonConvert.SerializeObject(list);
+                Log.Information(_json);
+                Log.Information("get success");
             }
             catch (Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error("OrderManagementDb,GetAllDatePlanning : " + ERR);
                 return null;
             }
             return list;
@@ -289,6 +302,7 @@ namespace ServerSide.Dbcontent
             List<OrderManageModel> lists = new List<OrderManageModel>();
             try
             {
+                Log.Information("== get order is not verify yet");
                 string sql = "SELECT * FROM Order_Management " +
                     "WHERE OrderNumber != 'NULL' and Status = 'Success' and VerifyStatus ='Wait'  and StartStationType = 'OUTSIDE' or EndStationType = 'OUTSIDE'";
 
@@ -299,10 +313,12 @@ namespace ServerSide.Dbcontent
                     if (tb != null && tb.Rows.Count > 0)
                         lists = defineModelList(tb);
                 }
+                Log.Information("success");
             }
             catch (Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error("OrderManagementDb,getOrderVerifyIsNotSuccess : " + ERR);
                 return null;
             }
             return lists;
@@ -318,6 +334,11 @@ namespace ServerSide.Dbcontent
         {
             try
             {
+                Log.Information("== addNewOrderForPlanning");
+                Log.Information("JobNumber : " + model.JobNumber);
+                Log.Information("LicensePlate : " + model.LIcensePlate);
+                Log.Information("Weight Type : " + model.WeightType);
+                Log.Information("RawMatName : " + model.RawMatName);
                 sql = "INSERT INTO Order_Management (JobNumber,WeightType,POBuy,POSale,SuppireName,CustomerName,ProductName,RawMatName,StartStationName,StartStationType,EndStationName,EndStationType,TransportName,LicensePlate,DriverName,DateCreate,Status,EmployeeCreate,ReferenceNumber,OutSideFirstWeight,OutSideSecondWeight,OutSideNetWeight,NetWeight,VerifyStatus) " +
                     "VALUES(@JobNumber,@WeightType,@POBuy,@POSale,@SuppireName,@CustomerName,@ProductName,@RawMatName,@StartStationName,@StartStationType,@EndStationName,@EndStationType,@TransportName,@LicensePlate,@DriverName,@DateCreate,@Status,@EmployeeCreate,@ReferenceNumber,@OutSideFirstWeight,@OutSideSecondWeight,@OutSideNetWeight,@NetWeight,@VerifyStatus)";
 
@@ -344,21 +365,20 @@ namespace ServerSide.Dbcontent
                         cmd.Parameters.Add(new SqlParameter("@VerifyStatus", "Wait"));
                     else
                         cmd.Parameters.Add(new SqlParameter("@VerifyStatus", "Not Check"));
-
                     cmd.Parameters.Add(new SqlParameter("@EmployeeCreate", model.EmployeeCreate));
                     cmd.Parameters.Add(new SqlParameter("@ReferenceNumber", ""));
                     cmd.Parameters.Add(new SqlParameter("@OutSideFirstWeight", "0"));
                     cmd.Parameters.Add(new SqlParameter("@OutSideSecondWeight", "0"));
                     cmd.Parameters.Add(new SqlParameter("@OutSideNetWeight", "0"));
                     cmd.Parameters.Add(new SqlParameter("@NetWeight", "0"));
-
                     cmd.ExecuteNonQuery();
                 }
+                Log.Information("success");
             }
             catch (Exception ex)
             {
                 ERR = ex.Message;
-                Console.WriteLine(ERR);
+                Log.Error("OrderManagementDb,AddNewOrderNumberForPlanning : " + ERR);
                 return false;
             }
             return true;
@@ -393,6 +413,7 @@ namespace ServerSide.Dbcontent
             catch (Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error("OrderManagementDb,GetOrderDate : " + ERR);
                 return null;
             }
             return list;
@@ -430,6 +451,7 @@ namespace ServerSide.Dbcontent
             catch (Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error("OrderManagementDb,GetOrderAnyQuery : " + ERR);
                 return null;
             }
             return list;
@@ -442,6 +464,7 @@ namespace ServerSide.Dbcontent
         /// <returns></returns>
         public OrderManageModel GetOrderById(int id)
         {
+            Log.Information("== getOrderById");
             OrderManageModel orderManageModel = new OrderManageModel();
             try
             {
@@ -487,12 +510,15 @@ namespace ServerSide.Dbcontent
                             OutSideNetWeight = int.Parse(dr["OutSideNetWeight"].ToString()),
                             NetWeight = int.Parse(dr["NetWeight"].ToString())
                         };
+                        string _json = JsonConvert.SerializeObject(orderManageModel);
+                        Log.Information(_json);
                         break;
                     }
             }
             catch (Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error("OrderManagementDb,GetOrderById : " + ERR);
                 return null;
             }
             return orderManageModel;

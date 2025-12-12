@@ -1,4 +1,6 @@
 ﻿using DocumentFormat.OpenXml.Spreadsheet;
+using Newtonsoft.Json;
+using Serilog;
 using ServerSide.Models;
 using System;
 using System.Collections.Generic;
@@ -28,6 +30,7 @@ namespace ServerSide.Dbcontent
             List<PrintDetailModel> list = new List<PrintDetailModel>();
             try
             {
+                Log.Information("== getDetailOrderId");
                 string sql = $"SELECT * FROM PrintDetail WHERE OrderId = {orderId}";
                 DataTable tb = new DataTable();
                 using (SqlDataAdapter da = new SqlDataAdapter(sql, con))
@@ -56,18 +59,20 @@ namespace ServerSide.Dbcontent
                             Note = note,
                             DateTimez = dateTime.ToString("yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.CreateSpecificCulture("en-EN"))
                         };
+                        string _json = JsonConvert.SerializeObject(model);
+                        Log.Information(_json);
                         list.Add(model);
                     }
+
             }
             catch (Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error("PrintDetailDb,GetDetailOrderId : " + ERR);
                 return null;
             }
             return list;
         }
-
-
         public int GetSeqReport(int OrderId)
         {
             int seq = 0;
@@ -88,6 +93,7 @@ namespace ServerSide.Dbcontent
             catch (Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error("PrintDetailDb,GetSeqReport : " + ERR);
                 return 0;
             }
             return seq;
@@ -96,6 +102,8 @@ namespace ServerSide.Dbcontent
         {
             try
             {
+                Log.Information("== add new detail print detail");
+                string _json = JsonConvert.SerializeObject(model);
                 string sql = "INSERT INTO PrintDetail (OrderId,Seq,Datez,Employee,Note) " +
                     " VALUES(@OrderId,@Seq,@Datez,@Employee,@Note)";
                 using (SqlCommand cmd = new SqlCommand(sql, con))
@@ -107,10 +115,12 @@ namespace ServerSide.Dbcontent
                     cmd.Parameters.Add(new SqlParameter("@Note", model.Note));
                     cmd.ExecuteNonQuery();
                 }
+                Log.Information("success");
             }
             catch (Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error("PrintDetailDb,AddNew Detail : " + ERR);
                 return false;
             }
             return true;

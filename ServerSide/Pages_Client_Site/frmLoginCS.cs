@@ -1,4 +1,5 @@
-﻿using ServerSide.Dbcontent;
+﻿using Serilog;
+using ServerSide.Dbcontent;
 using ServerSide.Models;
 using ServerSide.Pages;
 using ServerSide.Pages_Public;
@@ -91,6 +92,7 @@ namespace ServerSide.Pages_Client_Site
             {
                 this.Hide();
                 frmDbConfig frmDbConfig = new frmDbConfig();
+                Log.Information("========================== open dbConfig from");
                 frmDbConfig.ShowDialog();
                 this.Show();
             }

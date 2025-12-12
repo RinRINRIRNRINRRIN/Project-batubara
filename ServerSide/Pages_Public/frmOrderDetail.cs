@@ -1,4 +1,6 @@
-﻿using ServerSide.Dbcontent;
+﻿using Newtonsoft.Json;
+using Serilog;
+using ServerSide.Dbcontent;
 using ServerSide.Models;
 using System;
 using System.Collections.Generic;
@@ -47,7 +49,6 @@ namespace ServerSide.Pages_Public
             lblPoSale.Text = model.PoSale;
             lblPoBuy.Text = model.PoBuy;
             lblTransportSup.Text = model.TransportName;
-            //        lblSupplier.Text = model.SuppireName;
             lblDriver.Text = model.DriverName;
             lblWeightStatus.Text = model.Status;
             lblVerifyStatus.Text = model.VerifyStatus;

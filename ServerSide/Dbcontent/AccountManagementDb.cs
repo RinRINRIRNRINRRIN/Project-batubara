@@ -1,4 +1,6 @@
 ﻿using Microsoft.Win32;
+using Newtonsoft.Json;
+using Serilog;
 using ServerSide.Models;
 using System;
 using System.Collections.Generic;
@@ -25,6 +27,7 @@ namespace ServerSide.Dbcontent
 
         public List<AccountManagementModel> GetAllAccount()
         {
+            Log.Information("== แสดงรายการชื่อลูกค้า");
             List<AccountManagementModel> list = new List<AccountManagementModel>();
             try
             {
@@ -48,10 +51,12 @@ namespace ServerSide.Dbcontent
                             list.Add(model);
                         }
                 }
+                Log.Information("success");
             }
             catch (Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error("AccountManagementDb,GetAllAccount : " + ERR);
                 return null;
             }
             return list;
@@ -80,21 +85,24 @@ namespace ServerSide.Dbcontent
                         break;
                     }
                 }
+                Log.Information("success");
             }
             catch (Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error("AccountManagementDb,GetAllAccount : " + ERR);
                 return null;
             }
             return account;
         }
 
-
-
         public bool AddNew(AccountManagementModel model)
         {
             try
             {
+                Log.Information("== add new account");
+                string _json = JsonConvert.SerializeObject(model);
+                Log.Information(_json);
                 sql = "INSERT INTO Account_Management (Username,Password,FullName,Status,Position) " +
                     "VALUES (@Username,@Password,@FullName,@Status,@Position)";
 
@@ -107,16 +115,16 @@ namespace ServerSide.Dbcontent
                     cmd.Parameters.Add(new SqlParameter("@Position", model.Position));
                     cmd.ExecuteNonQuery();
                 }
+                Log.Information("success");
             }
             catch (Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error("AccountManagementDb,AddNew : " + ERR);
                 return false;
             }
             return true;
         }
-
-
         public bool UpdateAccount(AccountManagementModel model)
         {
             try
@@ -139,16 +147,16 @@ namespace ServerSide.Dbcontent
                     cmd.Parameters.Add(new SqlParameter("@Id", model.Id));
                     cmd.ExecuteNonQuery();
                 }
+                Log.Information("success");
             }
             catch (Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error("AccountManagementDb,UpdateAccount : " + ERR);
                 return false;
             }
             return true;
         }
-
-
         public bool Delete(int id)
         {
             try
@@ -159,10 +167,12 @@ namespace ServerSide.Dbcontent
                     cmd.Parameters.Add(new SqlParameter("@Id", id));
                     cmd.ExecuteNonQuery();
                 }
+                Log.Information("success");
             }
             catch (Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error("AccountManagementDb,Delete : " + ERR);
                 return false;
             }
             return true;

@@ -1,9 +1,12 @@
-﻿using ServerSide.Models;
+﻿using Newtonsoft.Json;
+using Serilog;
+using ServerSide.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,6 +28,9 @@ namespace ServerSide.Dbcontent
         {
             try
             {
+                Log.Information("==add new Weight detail");
+                string jsonLog = JsonConvert.SerializeObject(model);
+                Log.Information("Saved Model: " + jsonLog);
                 string sql = "INSERT INTO Weighing_Detail (OrderId,DateWeighing,NetWeight,WeightType,Employee) " +
                     "VALUES (@OrderId,@DateWeighing,@NetWeight,@WeightType,@Employee)";
                 using (SqlCommand cmd = new SqlCommand(sql, con))
@@ -36,10 +42,12 @@ namespace ServerSide.Dbcontent
                     cmd.Parameters.Add(new SqlParameter("@Employee", model.Employee));
                     cmd.ExecuteNonQuery();
                 }
+                Log.Information("Success");
             }
             catch (Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error("WeighingDetailDb,AddNew : " + ERR);
                 return false;
             }
             return true;
@@ -47,6 +55,7 @@ namespace ServerSide.Dbcontent
 
         public List<WeightDetailModel> GetDetailByOrderId(int orderId)
         {
+            Log.Information("== getDetailByOrderId");
             List<WeightDetailModel> list = new List<WeightDetailModel>();
             try
             {
@@ -78,11 +87,13 @@ namespace ServerSide.Dbcontent
                             };
                             list.Add(weightDetailModel);
                         }
+                    Log.Information("Success");
                 }
             }
             catch (Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error("WeighingDetailDb,GetDetailByOrderId : " + ERR);
                 return null;
             }
             return list;

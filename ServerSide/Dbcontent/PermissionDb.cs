@@ -1,4 +1,6 @@
-﻿using ServerSide.Models;
+﻿using Newtonsoft.Json;
+using Serilog;
+using ServerSide.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -23,6 +25,8 @@ namespace ServerSide.Dbcontent
 
         public List<PermissionModel> GetAllPermissionByAccountId(int id)
         {
+            Log.Information("== get permissionById");
+            Log.Information("ID : " + id);
             List<PermissionModel> list = new List<PermissionModel>();
             try
             {
@@ -42,6 +46,8 @@ namespace ServerSide.Dbcontent
                                 Menuname = item["MenuName"].ToString(),
                                 MenuType = item["MenuType"].ToString()
                             };
+                            string _json = JsonConvert.SerializeObject(permissionModel);
+                            Log.Information(_json);
                             list.Add(permissionModel);
                         }
                     }
@@ -50,6 +56,7 @@ namespace ServerSide.Dbcontent
             catch (Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error("PermissionDb,GetAllPermissionByAccountId : " + ERR);
                 return null;
             }
             return list;
@@ -59,6 +66,9 @@ namespace ServerSide.Dbcontent
         {
             try
             {
+                Log.Information("== add permission new");
+                string _json = JsonConvert.SerializeObject(models);
+                Log.Information(_json);
                 foreach (var item in models)
                 {
                     sql = "INSERT INTO Permission (AccountId,MenuName,MenuType) " +
@@ -75,6 +85,7 @@ namespace ServerSide.Dbcontent
             catch (Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error("PermissionDb,AddNew : " + ERR);
                 return false;
             }
             return true;
@@ -84,15 +95,18 @@ namespace ServerSide.Dbcontent
         {
             try
             {
+                Log.Information("== delete permission ");
                 sql = $"DELETE FROM Permission WHERE AccountId = {id}";
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
                     cmd.ExecuteNonQuery();
                 }
+                Log.Information("success");
             }
             catch (Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error("PermissionDb,Delete : " + ERR);
                 return false;
             }
             return true;

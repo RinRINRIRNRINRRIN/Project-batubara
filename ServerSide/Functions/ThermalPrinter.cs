@@ -1,6 +1,8 @@
 ﻿using DocumentFormat.OpenXml.Wordprocessing;
 using ESC_POS_USB_NET.Enums;
 using ESC_POS_USB_NET.Printer;
+using Newtonsoft.Json;
+using Serilog;
 using ServerSide.Models;
 using System;
 using System.Collections.Generic;
@@ -38,6 +40,9 @@ namespace ServerSide.Functions
         {
             try
             {
+                Log.Information("== PrintPage Thermal");
+                string _json = JsonConvert.SerializeObject(_model);
+                Log.Information(_json);
                 //--------------- Header
                 Printer printer = new Printer(printerName, encodingPage);
                 Bitmap bitmap = new Bitmap(_model.Logo, 2500, 1200);
@@ -77,10 +82,12 @@ namespace ServerSide.Functions
                 printer.Separator();
                 printer.FullPaperCut();
                 printer.PrintDocument();
+                Log.Information("printPage thermal success");
             }
             catch (Exception ex)
             {
                 Error = ex.Message;
+                Log.Error("ThermalPrinter,PrintPage : " + Error);
                 return false;
             }
             return true;

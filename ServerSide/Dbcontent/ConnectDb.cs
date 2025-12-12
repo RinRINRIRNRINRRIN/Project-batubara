@@ -17,7 +17,7 @@ namespace ServerSide.Dbcontent
         {
             try
             {
-                Log.Information("Try to connect database");
+                Log.Information("==Try to connect database");
                 string host = ConfigurationManager.AppSettings["HOST"];
                 string port = ConfigurationManager.AppSettings["PORT"];
                 string db = ConfigurationManager.AppSettings["DB"];
@@ -31,6 +31,7 @@ namespace ServerSide.Dbcontent
                 {
                     con = new SqlConnection($"Server={host},{port};Database={db};User Id={user};Password={pass};");
                 }
+                Log.Information("Connection string : " + con.ConnectionString);
                 con.Open();
             }
             catch (Exception ex)

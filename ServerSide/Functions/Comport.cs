@@ -105,7 +105,7 @@ namespace ServerSide.Functions
             List<PortsModel> lists = new List<PortsModel>();
             try
             {
-                Log.Information("Get all port in computer");
+                Log.Information("==Get all port in computer");
                 // ใช้ WMI ค้นหาอุปกรณ์ที่มีคำว่า (COM...) ในชื่อ
                 using (var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_PnPEntity WHERE Caption like '%(COM%)'"))
                 {

@@ -1,4 +1,5 @@
 ﻿using DocumentFormat.OpenXml.Office2013.Drawing.Chart;
+using Serilog;
 using ServerSide.Dbcontent;
 using ServerSide.Functions;
 using ServerSide.Models;
@@ -72,6 +73,7 @@ namespace ServerSide.Pages_Client_Site
 
         bool SaveFirstWeight()
         {
+            Log.Information("==Save first weight");
             // insert weight detial
             WeightDetailModel model = new WeightDetailModel
             {
@@ -112,6 +114,7 @@ namespace ServerSide.Pages_Client_Site
 
         bool SaveSecondWeight()
         {
+            Log.Information("==Save second weight");
             model = new WeightDetailModel
             {
                 OrderId = _orderModel.Id,
@@ -195,8 +198,8 @@ namespace ServerSide.Pages_Client_Site
                 CustomerName = orderManageModel.CustomerName,
                 ProductName = orderManageModel.ProductNamez,
                 TransportName = orderManageModel.TransportName,
-                DCNumber = orderManageModel.PoSale,
-                PONumber = orderManageModel.PoBuy,
+                DCNumber = orderManageModel.PoBuy,
+                PONumber = orderManageModel.PoSale,
                 DateIn = firstWeight.Datez,
                 TimeIn = firstWeight.Timez,
                 DateOut = secondWeightModel.Datez,
