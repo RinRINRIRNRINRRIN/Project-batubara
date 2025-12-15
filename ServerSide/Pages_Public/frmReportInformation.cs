@@ -50,7 +50,6 @@ namespace ServerSide.Pages_Client_Site
             string dateToDay = DateTime.Now.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.CreateSpecificCulture("en-EN"));
             List<OrderManageModel> list = db.GetOrderDate(dateToDay + " 00:00:00", dateToDay + " 23:59:59", "All");
             UpdateDatagrid(list);
-
         }
 
 
@@ -64,8 +63,12 @@ namespace ServerSide.Pages_Client_Site
             string dateEnd = dtpEnd.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.CreateSpecificCulture("en-EN")) + " 23:59:59";
 
             List<OrderManageModel> list = orderManagementDb.GetOrderAnyQuery(dateStrt, dateEnd, cbbOrderStatus.Text, txtLicensePlate.Text, txtOrderNumber.Text, txtJobNumber.Text);
+            DataTable tb = orderManagementDb.getOrderByQuery(dateStrt, dateEnd, cbbOrderStatus.Text, txtLicensePlate.Text, txtOrderNumber.Text, txtJobNumber.Text);
             if (list != null)
+            {
                 UpdateDatagrid(list);
+                DataTableForSearch = tb;
+            }
         }
 
         void updateUiDgv()
@@ -104,21 +107,21 @@ namespace ServerSide.Pages_Client_Site
             if (lists != null)
             {
                 dgv.Rows.Clear();
-                DataTableForSearch = new DataTable();
+                //DataTableForSearch = new DataTable();
 
-                foreach (var item in lists)
-                {
-                    // create column datatable
-                    foreach (var orderModel in item.GetType().GetProperties())
-                    {
-                        DataTableForSearch.Columns.Add(orderModel.Name);
-                    }
-                    break;
-                }
+                //foreach (var item in lists)
+                //{
+                //    // create column datatable
+                //    foreach (var orderModel in item.GetType().GetProperties())
+                //    {
+                //        DataTableForSearch.Columns.Add(orderModel.Name);
+                //    }
+                //    break;
+                //}
                 foreach (var item in lists)
                 {
                     // create rows 
-                    DataTableForSearch.Rows.Add(item.Id, item.OrderNumber, item.JobNumber, item.WeightType, item.PoBuy, item.PoSale, item.SuppireName, item.CustomerName, item.ProductNamez, item.RawMatName, item.StartStationName, item.StartStationType, item.EndStationName, item.EndStationType, item.TransportName, item.LIcensePlate, item.DriverName, item.DateCreate, item.VerifyStatus, item.EmployeeCreate, item.EmplpoyeeVerify, item.ReferenceNumber, item.OutSideFirstWeight, item.OutSideSecondWeight, item.OutSideNetWeight, item.NetWeight);
+                    //DataTableForSearch.Rows.Add(item.Id, item.OrderNumber, item.JobNumber, item.WeightType, item.PoBuy, item.PoSale, item.SuppireName, item.CustomerName, item.ProductNamez, item.RawMatName, item.StartStationName, item.StartStationType, item.EndStationName, item.EndStationType, item.TransportName, item.LIcensePlate, item.DriverName, item.DateCreate, item.VerifyStatus, item.EmployeeCreate, item.EmplpoyeeVerify, item.ReferenceNumber, item.OutSideFirstWeight, item.OutSideSecondWeight, item.OutSideNetWeight, item.NetWeight);
                     dgv.Rows.Add(item.Id, item.OrderNumber, item.WeightType, item.JobNumber, item.ProductNamez, item.RawMatName, item.CustomerName, item.TransportName, item.LIcensePlate, item.Status);
                 }
 
