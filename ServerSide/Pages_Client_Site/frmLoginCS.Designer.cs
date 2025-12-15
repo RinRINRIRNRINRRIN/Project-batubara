@@ -241,9 +241,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(366, 303);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 25);
+            this.label3.Size = new System.Drawing.Size(71, 25);
             this.label3.TabIndex = 19;
-            this.label3.Text = "uat 1.0.1";
+            this.label3.Text = "uat 1.0.2";
             // 
             // frmLoginCS
             // 
