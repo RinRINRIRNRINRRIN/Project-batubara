@@ -131,8 +131,6 @@ namespace ServerSide.Pages_Client_Site
             lblLicensePlate.Text = _reportModel.CarNumber;
 
             lblSeq.Text = Seq.ToString("#,###");
-
-
         }
 
         private void frmReport_Load(object sender, EventArgs e)
