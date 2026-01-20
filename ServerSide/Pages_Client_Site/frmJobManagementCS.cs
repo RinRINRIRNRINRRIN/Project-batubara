@@ -127,7 +127,7 @@ namespace ServerSide.Pages_Client_Site
                     }
 
                     // check referancenumber
-                    if (model.StartStationType == "OUTSIDE" || model.EndStationType == "OUTSIDE")
+                    if (model.StartStationType.Trim() == "OUTSIDE" || model.EndStationType.Trim() == "OUTSIDE")
                         gbReferenceNumber.Visible = true;
                     else
                         gbReferenceNumber.Visible = false;
