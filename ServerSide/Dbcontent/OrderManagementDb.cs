@@ -472,21 +472,79 @@ namespace ServerSide.Dbcontent
             DataTable tb = new DataTable();
             try
             {
+                //string sql = "SELECT " +
+                //    "a.OrderNumber as 'เลขที่ชั่ง',a.JobNumber as 'เลขที่งาน' ,a.WeightType as 'ประเภทชั่ง',a.POBuy as 'เลขที่ใบสั่งซื้อ',a.POSale as 'เลขที่ใบสั่งขาย',a.SuppireName as 'ชื่อซัพพลายเออร์',a.CustomerName as 'ชื่อลูกค้า',a.ProductName as 'ชื่อสินค้า',a.CustomerName as 'ชื่อลูกค้า',a.RawMatName as 'ชื่อวัตถุดิบ',a.StartStationName as 'สถานีชั่งครั้งที่หนึ่ง',a.StartStationType as 'ประเภทแท่นชั่งครั้งที่หนึ่ง',a.EndStationName as 'สถานีชั่งครั้งที่สอง',a.EndStationType as 'ประเภทแท่นชั่งครั้งที่สอง',a.TransportName as 'ชื่อขนส่ง',a.LicensePlate as 'ทะเบียนรถ',a.DriverName as 'ชื่อคนขับ',a.DateCreate as 'วันที่สร้างรายการ',a.Status as 'สถานะรายการชั่ง',a.VerifyStatus as 'สถานะตรวจสอบ',a.EmployeeCreate as 'พนักงานสร้างรายการ',a.EmployeeVerify as 'พนักงานตรวจสอบ',a.ReferenceNumber as 'หมายเลขอ้างอิงจากแท่นอื่น',a.OutSideFirstWeight as 'น้ำหนักชั่งครั้งที่หนึ่งแท่นภายนอก',a.OutSideSecondWeight as 'น้ำหนักชั่งครั้งที่สองแท่นภายนอก',a.OutSideNetWeight as 'น้ำหนักสุทธิแท่นภายนอก'," +
+                //    "(" +
+                //    " SELECT STRING_AGG(FORMAT(b.DateWeighing, 'yyyy-MM-dd HH:mm:ss'), ', ') " +
+                //    " FROM Weighing_Detail b" +
+                //    " WHERE b.OrderId = a.Id " +
+                //    ") AS 'วันที่ชั่งครั้งที่หนึ่ง , วันที่ชั่งครั้งที่สอง'," +
+                //    "(" +
+                //    " SELECT STRING_AGG(b.NetWeight, ', ')" +
+                //    " FROM Weighing_Detail b " +
+                //    " WHERE b.OrderId = a.Id" +
+                //    ") as 'น้ำหนักชั่งครั้งที่หนึ่ง , น้ำหนักชั่งครั้งที่สอง'," +
+                //    "a.NetWeight as 'น้ำหนักสุทธิ' " +
+                //    " FROM Order_Management a " +
+                //    $"WHERE a.DateCreate BETWEEN '{dateStrat}' and '{dateEnd}' ";
+
                 string sql = "SELECT " +
-                    "a.OrderNumber as 'เลขที่ชั่ง',a.JobNumber as 'เลขที่งาน' ,a.WeightType as 'ประเภทชั่ง',a.POBuy as 'เลขที่ใบสั่งซื้อ',a.POSale as 'เลขที่ใบสั่งขาย',a.SuppireName as 'ชื่อซัพพลายเออร์',a.CustomerName as 'ชื่อลูกค้า',a.ProductName as 'ชื่อสินค้า',a.CustomerName as 'ชื่อลูกค้า',a.RawMatName as 'ชื่อวัตถุดิบ',a.StartStationName as 'สถานีชั่งครั้งที่หนึ่ง',a.StartStationType as 'ประเภทแท่นชั่งครั้งที่หนึ่ง',a.EndStationName as 'สถานีชั่งครั้งที่สอง',a.EndStationType as 'ประเภทแท่นชั่งครั้งที่สอง',a.TransportName as 'ชื่อขนส่ง',a.LicensePlate as 'ทะเบียนรถ',a.DriverName as 'ชื่อคนขับ',a.DateCreate as 'วันที่สร้างรายการ',a.Status as 'สถานะรายการชั่ง',a.VerifyStatus as 'สถานะตรวจสอบ',a.EmployeeCreate as 'พนักงานสร้างรายการ',a.EmployeeVerify as 'พนักงานตรวจสอบ',a.ReferenceNumber as 'หมายเลขอ้างอิงจากแท่นอื่น',a.OutSideFirstWeight as 'น้ำหนักชั่งครั้งที่หนึ่งแท่นภายนอก',a.OutSideSecondWeight as 'น้ำหนักชั่งครั้งที่สองแท่นภายนอก',a.OutSideNetWeight as 'น้ำหนักสุทธิแท่นภายนอก'," +
-                    "(" +
-                    " SELECT STRING_AGG(FORMAT(b.DateWeighing, 'yyyy-MM-dd HH:mm:ss'), ', ') " +
-                    " FROM Weighing_Detail b" +
-                    " WHERE b.OrderId = a.Id " +
-                    ") AS 'วันที่ชั่งครั้งที่หนึ่ง , วันที่ชั่งครั้งที่สอง'," +
-                    "(" +
-                    " SELECT STRING_AGG(b.NetWeight, ', ')" +
-                    " FROM Weighing_Detail b " +
-                    " WHERE b.OrderId = a.Id" +
-                    ") as 'น้ำหนักชั่งครั้งที่หนึ่ง , น้ำหนักชั่งครั้งที่สอง'," +
-                    "a.NetWeight as 'น้ำหนักสุทธิ' " +
-                    " FROM Order_Management a " +
-                    $"WHERE a.DateCreate BETWEEN '{dateStrat}' and '{dateEnd}' ";
+                     " a.OrderNumber as 'เลขที่ชั่ง'," +
+                     " a.JobNumber as 'เลขที่งาน'," +
+                     " a.WeightType as 'ประเภทชั่ง'," +
+                     " a.POBuy as 'เลขที่ใบสั่งซื้อ'," +
+                     " a.POSale as 'เลขที่ใบสั่งขาย'," +
+                     " a.SuppireName as 'ชื่อซัพพลายเออร์'," +
+                     " a.CustomerName as 'ชื่อลูกค้า', " +
+                     " a.ProductName as 'ชื่อสินค้า'," +
+                     " a.RawMatName as 'ชื่อวัตถุดิบ', " +
+                     " a.StartStationName as 'สถานีชั่งครั้งที่หนึ่ง'," +
+                     " a.StartStationType as 'ประเภทแท่นชั่งครั้งที่หนึ่ง', " +
+                     " a.EndStationName as 'สถานีชั่งครั้งที่สอง', " +
+                     " a.EndStationType as 'ประเภทแท่นชั่งครั้งที่สอง', " +
+                     " a.TransportName as 'ชื่อขนส่ง', " +
+                     " a.LicensePlate as 'ทะเบียนรถ', " +
+                     " a.DriverName as 'ชื่อคนขับ', " +
+                     " a.DateCreate as 'วันที่สร้างรายการ', " +
+                     " a.Status as 'สถานะรายการชั่ง', " +
+                     " a.VerifyStatus as 'สถานะตรวจสอบ', " +
+                     " a.EmployeeCreate as 'พนักงานสร้างรายการ', " +
+                     " a.EmployeeVerify as 'พนักงานตรวจสอบ', " +
+                     " a.ReferenceNumber as 'หมายเลขอ้างอิงจากแท่นอื่น', " +
+                     " a.OutSideFirstWeight as 'น้ำหนักชั่งครั้งที่หนึ่งแท่นภายนอก', " +
+                     " a.OutSideSecondWeight as 'น้ำหนักชั่งครั้งที่สองแท่นภายนอก', " +
+                     " a.OutSideNetWeight as 'น้ำหนักสุทธิแท่นภายนอก', " +
+                     " ( " +
+                     " SELECT TOP 1 FORMAT(b.DateWeighing, 'yyyy-MM-dd') " +
+                     " FROM Weighing_Detail b WHERE b.OrderId = a.Id ORDER BY b.DateWeighing ASC" +
+                     " ) AS 'วันที่ชั่งเข้า'," +
+                     " ( " +
+                     " SELECT TOP 1 FORMAT(b.DateWeighing, 'HH:mm:ss') " +
+                     " FROM Weighing_Detail b WHERE b.OrderId = a.Id ORDER BY b.DateWeighing ASC" +
+                     " ) AS 'เวลาชั่งเข้า'," +
+                     " (" +
+                     " SELECT FORMAT(b.DateWeighing, 'yyyy-MM-dd')" +
+                     " FROM Weighing_Detail b WHERE b.OrderId = a.Id ORDER BY b.DateWeighing ASC " +
+                     " OFFSET 1 ROWS FETCH NEXT 1 ROW ONLY" +
+                     " ) AS 'วันที่ชั่งออก'," +
+                     " (" +
+                     " SELECT FORMAT(b.DateWeighing, 'HH:mm:ss')" +
+                     " FROM Weighing_Detail b WHERE b.OrderId = a.Id ORDER BY b.DateWeighing ASC " +
+                     " OFFSET 1 ROWS FETCH NEXT 1 ROW ONLY" +
+                     " ) AS 'เวลาชั่งออก'," +
+                     " (" +
+                     " SELECT TOP 1 b.NetWeight " +
+                     " FROM Weighing_Detail b WHERE b.OrderId = a.Id ORDER BY b.DateWeighing ASC" +
+                     " ) AS 'น้ำหนักชั่งเข้า'," +
+                     " (" +
+                     " SELECT b.NetWeight" +
+                     " FROM Weighing_Detail b " +
+                     " WHERE b.OrderId = a.Id ORDER BY b.DateWeighing ASC" +
+                     " OFFSET 1 ROWS FETCH NEXT 1 ROW ONLY" +
+                     " ) AS 'น้ำหนักชั่งออก'," +
+                     " a.NetWeight as 'น้ำหนักสุทธิ'" +
+                     " FROM Order_Management a" +
+                     $" WHERE a.DateCreate BETWEEN '{dateStrat}' and '{dateEnd}'";
 
                 if (status != "-- ไม่เลือก --")
                     sql += $"and a.Status = '{status}'";
