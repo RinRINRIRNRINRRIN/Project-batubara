@@ -99,6 +99,11 @@ namespace ServerSide.Pages_Client_Site
                 serialPort1.DataBits = int.Parse(cbbDatabit.Text);
                 serialPort1.Parity = (Parity)Enum.Parse(typeof(Parity), cbbParity.Text);
                 serialPort1.StopBits = (StopBits)Enum.Parse(typeof(StopBits), cbbStopbit.Text);
+                Log.Information(serialPort1.PortName);
+                Log.Information(serialPort1.BaudRate.ToString());
+                Log.Information(serialPort1.DataBits.ToString());
+                Log.Information(serialPort1.Parity.ToString());
+                Log.Information(serialPort1.StopBits.ToString());
 
                 serialPort1.Open();
                 pnScale.Enabled = false;
@@ -256,16 +261,59 @@ namespace ServerSide.Pages_Client_Site
 
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
+            string weightStr = "";
+            int weigh = 0;
+            List<byte> buffer = new List<byte>();
+
             try
             {
-                int weigh = 0;
+
                 switch (SelectScaleName)
                 {
                     case "HP05":
+                        int a = serialPort1.BytesToRead;
+                        byte[] data = new byte[a];
+                        serialPort1.Read(data, 0, data.Length);
+                        buffer.AddRange(data);
+
+                        while (buffer.Count >= 18)
+                        {
+                            Log.Information("Bytes count : " + buffer.Count);
+                            Log.Information("===================");
+                            for (int i = 0; i < buffer.Count; i++)
+                                Log.Information("byte : " + buffer[i]);
+                            Log.Information("===================");
+                            if (buffer[0] == 0x02 && buffer[17] == 0x0a)
+                            {
+                                Log.Information("found format!!!");
+                                byte[] _b = buffer.Take(17).ToArray();
+                                buffer.RemoveRange(0, 17);
+                                string c = Encoding.ASCII.GetString(_b);
+                                string cc = c.Substring(4, 8).Trim();
+                                int bbb = 0;
+                                bool cd = int.TryParse(cc, out bbb);
+                                if (cd)
+                                {
+                                    weightStr = bbb.ToString();
+                                    BeginInvoke(new MethodInvoker(delegate ()
+                                    {
+                                        txtWeight.Text = weightStr;
+                                    }));
+                                }
+                            }
+                            else
+                            {
+                                buffer.RemoveAt(0);
+                                buffer.Clear();
+                            }
+                        }
+                        string _a = serialPort1.ReadLine();
+                        Log.Information("Readline sub : " + _a.Substring(4, 7));
+                        Log.Information("Readline  : " + _a);
                         break;
                     case "3590ETD":
-                        string a = serialPort1.ReadLine();
-                        string[] b = a.Split(',');
+                        string aaa = serialPort1.ReadLine();
+                        string[] b = aaa.Split(',');
                         if (int.TryParse(b[2].Trim(), out weigh))
                             BeginInvoke(new MethodInvoker(delegate ()
                             {
@@ -285,6 +333,7 @@ namespace ServerSide.Pages_Client_Site
             catch (Exception ex)
             {
                 Log.Error("frmSetting,serialPort1_DataReceived : " + ex.Message);
+                buffer.Clear();
             }
         }
 
@@ -399,6 +448,13 @@ namespace ServerSide.Pages_Client_Site
 
 
             }
+        }
+
+        private void serialPort2_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            string _a = serialPort2.ReadLine();
+            Log.Information("Readline sub 2: " + _a.Substring(4, 7));
+            Log.Information("Readline  2: " + _a);
         }
     }
 }
