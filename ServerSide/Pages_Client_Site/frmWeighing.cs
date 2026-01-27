@@ -6,6 +6,7 @@ using ServerSide.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace ServerSide.Pages_Client_Site
             int y = (this.Height - pnLoader.Height) / 2;
             pnLoader.Location = new Point(x, y);
         }
-
+        private static string scaleName = ConfigurationManager.AppSettings["SCALENAME"];
         private readonly OrderManageModel _orderModel;
         private readonly AccountManagementModel _accountModel;
         private readonly FirstWeightModel firstWeightModel;
@@ -241,7 +242,8 @@ namespace ServerSide.Pages_Client_Site
         {
             try
             {
-                string res = comport.ReceiveWeight(serialPort1);
+                string res = "";
+                res = comport.ReceiveWeight(serialPort1);
                 int _weight = 0;
                 if (!int.TryParse(res, out _weight))
                 {
