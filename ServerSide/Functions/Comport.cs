@@ -1,5 +1,6 @@
 ﻿using DocumentFormat.OpenXml.Drawing;
 using DocumentFormat.OpenXml.Drawing.Charts;
+using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 using Serilog;
 using ServerSide.Models;
 using System;
@@ -11,6 +12,7 @@ using System.Linq;
 using System.Management;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ServerSide.Functions
 {
@@ -203,11 +205,34 @@ namespace ServerSide.Functions
                 switch (ScaleName)
                 {
                     case "HP05":
+                        // ข้อมูลดิบอาจมาเป็น: {STX}(0    12560     0{CR}{LF}
+                        // 1. ล้างตัวอักษรขยะออกให้หมด
+                        string rawData = _SerialPort.ReadLine();
+                        string cleanData = rawData.Replace("\x02", "")  // STX
+                                               .Replace("\r", "")    // CR
+                                               .Replace("\n", "")    // LF
+                                               .Replace("(", "")     // วงเล็บเปิด
+                                               .Replace(")", "")     // วงเล็บปิด (เผื่อมี)
+                                               .Trim();              // ตัดช่องว่างหน้าหลังสุด
+
+                        // 2. แยกชุดข้อมูลด้วยช่องว่าง (Space)
+                        // ไม่ว่าจะมีช่องว่างกี่ตัว คำสั่งนี้จะจัดการให้หมด
+                        string[] parts = cleanData.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+                        // 3. เลือกค่าที่เป็นน้ำหนัก (ปกติมักอยู่ตัวที่ 2 หรือ index 1)
+                        // ข้อมูลจะเป็นอาร์เรย์ประมาณนี้: ["0", "12560", "0"]
+                        if (parts.Length >= 2)
+                        {
+                            if (parts[0] == "2")
+                                weightStr = "-" + parts[1];
+                            else
+                                weightStr = parts[1];
+                        }
                         break;
                     case "3590ETD":
-                        string a = _SerialPort.ReadLine();
-                        string[] b = a.Split(',');
-                        weightStr = b[2].Trim();
+                        string aa = _SerialPort.ReadLine();
+                        string[] bb = aa.Split(',');
+                        weightStr = bb[2].Trim();
                         break;
                     default:
                         Log.Warning("Scale not match : " + ScaleName);
