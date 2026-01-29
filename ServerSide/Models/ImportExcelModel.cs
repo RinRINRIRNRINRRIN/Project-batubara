@@ -40,5 +40,7 @@ namespace ServerSide.Models
         public string Status { get; set; }
         public string EmployeeCreate { get; set; }
 
+        public string QC_code { get; set; }
+
     }
 }

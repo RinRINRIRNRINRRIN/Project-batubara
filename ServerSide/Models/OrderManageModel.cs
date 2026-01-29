@@ -83,5 +83,7 @@ namespace ServerSide.Models
         /// สำหรับกำหนดค่า remark
         /// </summary>
         public string Remark { get; set; }
+
+        public string QcCode { get; set; }
     }
 }
