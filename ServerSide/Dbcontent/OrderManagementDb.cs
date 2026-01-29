@@ -61,7 +61,8 @@ namespace ServerSide.Dbcontent
                         OutSideSecondWeight = int.Parse(dr["OutSideSecondWeight"].ToString()),
                         OutSideNetWeight = int.Parse(dr["OutSideNetWeight"].ToString()),
                         EmplpoyeeVerify = dr["EmployeeVerify"].ToString(),
-                        Remark = dr["Remark"].ToString()
+                        Remark = dr["Remark"].ToString(),
+                        QcCode = dr["QC_code"].ToString()
                     };
 
                     lists.Add(model);
@@ -342,8 +343,8 @@ namespace ServerSide.Dbcontent
                 Log.Information("LicensePlate : " + model.LIcensePlate);
                 Log.Information("Weight Type : " + model.WeightType);
                 Log.Information("RawMatName : " + model.RawMatName);
-                sql = "INSERT INTO Order_Management (JobNumber,WeightType,POBuy,POSale,SuppireName,CustomerName,ProductName,RawMatName,StartStationName,StartStationType,EndStationName,EndStationType,TransportName,LicensePlate,DriverName,DateCreate,Status,EmployeeCreate,ReferenceNumber,OutSideFirstWeight,OutSideSecondWeight,OutSideNetWeight,NetWeight,VerifyStatus) " +
-                    "VALUES(@JobNumber,@WeightType,@POBuy,@POSale,@SuppireName,@CustomerName,@ProductName,@RawMatName,@StartStationName,@StartStationType,@EndStationName,@EndStationType,@TransportName,@LicensePlate,@DriverName,@DateCreate,@Status,@EmployeeCreate,@ReferenceNumber,@OutSideFirstWeight,@OutSideSecondWeight,@OutSideNetWeight,@NetWeight,@VerifyStatus)";
+                sql = "INSERT INTO Order_Management (JobNumber,WeightType,POBuy,POSale,SuppireName,CustomerName,ProductName,RawMatName,StartStationName,StartStationType,EndStationName,EndStationType,TransportName,LicensePlate,DriverName,DateCreate,Status,EmployeeCreate,ReferenceNumber,OutSideFirstWeight,OutSideSecondWeight,OutSideNetWeight,NetWeight,VerifyStatus,Remark,QC_code) " +
+                    "VALUES(@JobNumber,@WeightType,@POBuy,@POSale,@SuppireName,@CustomerName,@ProductName,@RawMatName,@StartStationName,@StartStationType,@EndStationName,@EndStationType,@TransportName,@LicensePlate,@DriverName,@DateCreate,@Status,@EmployeeCreate,@ReferenceNumber,@OutSideFirstWeight,@OutSideSecondWeight,@OutSideNetWeight,@NetWeight,@VerifyStatus,@Remark,@QC_code)";
 
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
@@ -374,6 +375,8 @@ namespace ServerSide.Dbcontent
                     cmd.Parameters.Add(new SqlParameter("@OutSideSecondWeight", "0"));
                     cmd.Parameters.Add(new SqlParameter("@OutSideNetWeight", "0"));
                     cmd.Parameters.Add(new SqlParameter("@NetWeight", "0"));
+                    cmd.Parameters.Add(new SqlParameter("@Remark", ""));
+                    cmd.Parameters.Add(new SqlParameter("@QC_code", model.QC_code));
                     cmd.ExecuteNonQuery();
                 }
                 Log.Information("success");
@@ -475,21 +478,6 @@ namespace ServerSide.Dbcontent
             DataTable tb = new DataTable();
             try
             {
-                //string sql = "SELECT " +
-                //    "a.OrderNumber as 'เลขที่ชั่ง',a.JobNumber as 'เลขที่งาน' ,a.WeightType as 'ประเภทชั่ง',a.POBuy as 'เลขที่ใบสั่งซื้อ',a.POSale as 'เลขที่ใบสั่งขาย',a.SuppireName as 'ชื่อซัพพลายเออร์',a.CustomerName as 'ชื่อลูกค้า',a.ProductName as 'ชื่อสินค้า',a.CustomerName as 'ชื่อลูกค้า',a.RawMatName as 'ชื่อวัตถุดิบ',a.StartStationName as 'สถานีชั่งครั้งที่หนึ่ง',a.StartStationType as 'ประเภทแท่นชั่งครั้งที่หนึ่ง',a.EndStationName as 'สถานีชั่งครั้งที่สอง',a.EndStationType as 'ประเภทแท่นชั่งครั้งที่สอง',a.TransportName as 'ชื่อขนส่ง',a.LicensePlate as 'ทะเบียนรถ',a.DriverName as 'ชื่อคนขับ',a.DateCreate as 'วันที่สร้างรายการ',a.Status as 'สถานะรายการชั่ง',a.VerifyStatus as 'สถานะตรวจสอบ',a.EmployeeCreate as 'พนักงานสร้างรายการ',a.EmployeeVerify as 'พนักงานตรวจสอบ',a.ReferenceNumber as 'หมายเลขอ้างอิงจากแท่นอื่น',a.OutSideFirstWeight as 'น้ำหนักชั่งครั้งที่หนึ่งแท่นภายนอก',a.OutSideSecondWeight as 'น้ำหนักชั่งครั้งที่สองแท่นภายนอก',a.OutSideNetWeight as 'น้ำหนักสุทธิแท่นภายนอก'," +
-                //    "(" +
-                //    " SELECT STRING_AGG(FORMAT(b.DateWeighing, 'yyyy-MM-dd HH:mm:ss'), ', ') " +
-                //    " FROM Weighing_Detail b" +
-                //    " WHERE b.OrderId = a.Id " +
-                //    ") AS 'วันที่ชั่งครั้งที่หนึ่ง , วันที่ชั่งครั้งที่สอง'," +
-                //    "(" +
-                //    " SELECT STRING_AGG(b.NetWeight, ', ')" +
-                //    " FROM Weighing_Detail b " +
-                //    " WHERE b.OrderId = a.Id" +
-                //    ") as 'น้ำหนักชั่งครั้งที่หนึ่ง , น้ำหนักชั่งครั้งที่สอง'," +
-                //    "a.NetWeight as 'น้ำหนักสุทธิ' " +
-                //    " FROM Order_Management a " +
-                //    $"WHERE a.DateCreate BETWEEN '{dateStrat}' and '{dateEnd}' ";
 
                 string sql = "SELECT " +
                      " a.OrderNumber as 'เลขที่ชั่ง'," +
@@ -626,7 +614,8 @@ namespace ServerSide.Dbcontent
                             OutSideSecondWeight = int.Parse(dr["OutSideSecondWeight"].ToString()),
                             OutSideNetWeight = int.Parse(dr["OutSideNetWeight"].ToString()),
                             NetWeight = int.Parse(dr["NetWeight"].ToString()),
-                            Remark = dr["Remark"].ToString()
+                            Remark = dr["Remark"].ToString(),
+                            QcCode = dr["QC_code"].ToString()
                         };
                         string _json = JsonConvert.SerializeObject(orderManageModel);
                         Log.Information(_json);
