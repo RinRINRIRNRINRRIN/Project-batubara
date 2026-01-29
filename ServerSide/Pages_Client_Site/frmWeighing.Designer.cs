@@ -89,6 +89,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblStatus = new System.Windows.Forms.Label();
             this.tmCheckWeight = new System.Windows.Forms.Timer(this.components);
+            this.txtNote = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.gbInformation.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
@@ -156,6 +157,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbInformation.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.gbInformation.BorderRadius = 4;
+            this.gbInformation.Controls.Add(this.txtNote);
             this.gbInformation.Controls.Add(this.guna2Panel5);
             this.gbInformation.Controls.Add(this.cbPreview);
             this.gbInformation.Controls.Add(this.guna2Panel3);
@@ -839,6 +841,27 @@
             this.tmCheckWeight.Interval = 5000;
             this.tmCheckWeight.Tick += new System.EventHandler(this.tmCheckWeight_Tick);
             // 
+            // txtNote
+            // 
+            this.txtNote.BorderColor = System.Drawing.Color.LightGray;
+            this.txtNote.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNote.DefaultText = "";
+            this.txtNote.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtNote.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtNote.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNote.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNote.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNote.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNote.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNote.Location = new System.Drawing.Point(31, 391);
+            this.txtNote.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtNote.Name = "txtNote";
+            this.txtNote.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txtNote.PlaceholderText = "Remark";
+            this.txtNote.SelectedText = "";
+            this.txtNote.Size = new System.Drawing.Size(470, 44);
+            this.txtNote.TabIndex = 26;
+            // 
             // frmWeighing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 25F);
@@ -940,5 +963,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblRawMat;
         private System.Windows.Forms.Timer tmCheckWeight;
+        private Guna.UI2.WinForms.Guna2TextBox txtNote;
     }
 }

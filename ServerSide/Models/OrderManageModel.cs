@@ -49,7 +49,7 @@ namespace ServerSide.Models
         /// </summary>
         public string VerifyStatus { get; set; }
         public string EmployeeCreate { get; set; }
-        
+
         /// <summary>
         /// สำหรับเก็บข้อมูลผู้ที่ตรวจสอบรายการ
         /// </summary>
@@ -78,5 +78,10 @@ namespace ServerSide.Models
         /// น้ำหนักสุทธิของการชั่ง
         /// </summary>
         public int NetWeight { get; set; }
+
+        /// <summary>
+        /// สำหรับกำหนดค่า remark
+        /// </summary>
+        public string Remark { get; set; }
     }
 }

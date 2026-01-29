@@ -17,6 +17,7 @@ namespace ServerSide.Models
         public string DCNumber { get; set; }
         public string PONumber { get; set; }
         public string CarNumber { get; set; }
+        public string Remark { get; set; }
         public string DateIn { get; set; }
         public string DateOut { get; set; }
         public string TimeIn { get; set; }

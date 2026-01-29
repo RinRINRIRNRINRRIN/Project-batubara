@@ -64,13 +64,19 @@ namespace ServerSide.Pages_Client_Site
             lblLicense.Text = _orderModel.LIcensePlate;
             btnScaleName.Text = comport.ScaleName;
             btnDevicePort.Text = comport.Port;
+            txtNote.Text = _orderModel.Remark;
             if (_orderModel.Status == "Process")
+            {
+                txtNote.Enabled = false;
                 lblStatus.Text = "ประเภทชั่ง : ชั่งออก";
+            }
             else if (_orderModel.Status == "Planning")
+            {
+                txtNote.Enabled = true;
                 lblStatus.Text = "ประเภทชั่ง : ชั่งเข้า";
+            }
 
         }
-
 
         bool SaveFirstWeight()
         {
@@ -96,7 +102,7 @@ namespace ServerSide.Pages_Client_Site
 
             // update create ordernumber
             OrderManagementDb orderManagementDb = new OrderManagementDb();
-            if (!orderManagementDb.UpdateOrderAndGetOrderId(_orderModel.Id))
+            if (!orderManagementDb.UpdateOrderAndGetOrderId(_orderModel.Id, txtNote.Text))
                 return false;
             _orderModel.OrderNumber = orderManagementDb.getOrderNumber;
 
@@ -208,7 +214,8 @@ namespace ServerSide.Pages_Client_Site
                 WeightIn = firstWeight.Weight,
                 WeightOut = secondWeightModel.Weight,
                 WeightNet = orderManageModel.NetWeight,
-                CarNumber = orderManageModel.LIcensePlate
+                CarNumber = orderManageModel.LIcensePlate,
+                Remark = orderManageModel.Remark
             };
 
 
@@ -236,7 +243,6 @@ namespace ServerSide.Pages_Client_Site
             pnLoader.Visible = false;
             pnMain.Visible = true;
         }
-
 
         private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
@@ -285,7 +291,6 @@ namespace ServerSide.Pages_Client_Site
 
         }
 
-
         private void btnStart_Click(object sender, EventArgs e)
         {
             try
@@ -309,7 +314,18 @@ namespace ServerSide.Pages_Client_Site
                 switch (_orderModel.Status)
                 {
                     case "Planning": // fristweight
-                                     // Add new record weight detail
+                        // check remark empty
+                        if(txtNote.Text == "")
+                        {
+                            txtNote.BorderColor = Color.Red;
+                            txtNote.BorderThickness = 2;
+                            MessageBox.Show("remark ว่างกรุณากรอกข้อมูลก่อนการบันทึกหากไม่มีข้อมูลให้ใช้ - \n" +
+                                "จะไม่สามารถกลับมาแก้ไขข้อมูลได้อีก", "Remark ว่าง", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                        txtNote.BorderColor = Color.Gray;
+                        txtNote.BorderThickness = 1;
+                        // Add new record weight detail
                         if (!SaveFirstWeight())
                             return;
                         // print receive thermal
@@ -334,7 +350,6 @@ namespace ServerSide.Pages_Client_Site
 
 
         }
-
 
         private async void frmWeighing_FormClosing(object sender, FormClosingEventArgs e)
         {

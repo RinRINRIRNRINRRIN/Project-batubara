@@ -108,6 +108,7 @@ namespace ServerSide.Pages_Client_Site
             rpt.SetParameterValue("rptDCnumber", _reportModel.DCNumber);
             rpt.SetParameterValue("rptPONumber", _reportModel.PONumber);
             rpt.SetParameterValue("rptCarNumber", _reportModel.CarNumber);
+            rpt.SetParameterValue("rptNote", _reportModel.Remark);
             rpt.SetParameterValue("rptDateIn", _reportModel.DateIn);
             rpt.SetParameterValue("rptDateOut", _reportModel.DateOut);
             rpt.SetParameterValue("rptTimeIn", _reportModel.TimeIn);

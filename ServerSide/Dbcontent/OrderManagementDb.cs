@@ -60,7 +60,8 @@ namespace ServerSide.Dbcontent
                         OutSideFirstWeight = int.Parse(dr["OutSideFirstWeight"].ToString()),
                         OutSideSecondWeight = int.Parse(dr["OutSideSecondWeight"].ToString()),
                         OutSideNetWeight = int.Parse(dr["OutSideNetWeight"].ToString()),
-                        EmplpoyeeVerify = dr["EmployeeVerify"].ToString()
+                        EmplpoyeeVerify = dr["EmployeeVerify"].ToString(),
+                        Remark = dr["Remark"].ToString()
                     };
 
                     lists.Add(model);
@@ -88,7 +89,7 @@ namespace ServerSide.Dbcontent
         /// <param name="id"></param>
         /// <returns>เลขที่ order string </returns>
 
-        public bool UpdateOrderAndGetOrderId(int id)
+        public bool UpdateOrderAndGetOrderId(int id, string remark)
         {
             string orderNumber = "";
             try
@@ -114,11 +115,13 @@ namespace ServerSide.Dbcontent
                 Log.Information("gen orderNumber : " + orderNumber);
                 Log.Information("Id PK : " + id);
                 sql = "UPDATE Order_Management " +
-                    "SET OrderNumber = @OrderNumber " +
+                    "SET OrderNumber = @OrderNumber," +
+                    "Remark = @Remark " +
                     "WHERE Id = @Id";
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
                     cmd.Parameters.Add(new SqlParameter("@OrderNumber", orderNumber));
+                    cmd.Parameters.Add(new SqlParameter("@Remark", remark));
                     cmd.Parameters.Add(new SqlParameter("@Id", id));
                     cmd.ExecuteNonQuery();
                 }
@@ -622,7 +625,8 @@ namespace ServerSide.Dbcontent
                             OutSideFirstWeight = int.Parse(dr["OutSideFirstWeight"].ToString()),
                             OutSideSecondWeight = int.Parse(dr["OutSideSecondWeight"].ToString()),
                             OutSideNetWeight = int.Parse(dr["OutSideNetWeight"].ToString()),
-                            NetWeight = int.Parse(dr["NetWeight"].ToString())
+                            NetWeight = int.Parse(dr["NetWeight"].ToString()),
+                            Remark = dr["Remark"].ToString()
                         };
                         string _json = JsonConvert.SerializeObject(orderManageModel);
                         Log.Information(_json);

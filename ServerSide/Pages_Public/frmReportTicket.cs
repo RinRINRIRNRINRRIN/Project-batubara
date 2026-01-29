@@ -86,7 +86,9 @@ namespace ServerSide.Pages_Public
                     TimeOut = SecondWeightModel.Timez,
                     WeightIn = FirstWeightModel.Weight,
                     WeightOut = SecondWeightModel.Weight,
-                    WeightNet = OrderModel.NetWeight
+                    WeightNet = OrderModel.NetWeight,
+                    Remark = OrderModel.Remark,
+
                 };
             }
         }

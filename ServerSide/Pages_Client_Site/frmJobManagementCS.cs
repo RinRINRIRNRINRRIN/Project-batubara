@@ -158,7 +158,6 @@ namespace ServerSide.Pages_Client_Site
                     await GetWeightDetail(id, model.Status);
                     dgv.Enabled = true;
                 }
-
             }
             catch
             {
@@ -196,6 +195,7 @@ namespace ServerSide.Pages_Client_Site
             order.OutSideFirstWeight = int.Parse(txtOutSideFirstWeight.Text);
             order.OutSideSecondWeight = int.Parse(txtOutSideSecondWeight.Text);
             order.OutSideNetWeight = int.Parse(txtOutSideNetWeight.Text);
+
             // open weighing form
             frmWeighing frmWeighing = new frmWeighing(order, _accountManagementModel, firstWeight);
             this.Hide();
