@@ -75,6 +75,7 @@ namespace ServerSide.Pages
                 model.LIcensePlate = rw.Cells[13].Value.ToString();
                 model.DriverName = rw.Cells[14].Value.ToString();
                 model.EmployeeCreate = _employeeModel.FullName;
+                model.QC_code = rw.Cells["cl_qc_code"].Value.ToString();
 
                 if (orderManagementDb.AddNewOrderNumberForPlanning(model))
                 {
@@ -212,9 +213,10 @@ namespace ServerSide.Pages
                     txtFileName.Text = $"File name : {openFileDialog.FileName}";
                     ShowLoader(true);
                     await Task.Delay(1000);
+
                     await Task.Run(async () =>
                     {
-                        int countBuy = 0, countSele = 0, countMix = 0;
+                        int countBuy = 0, countSele = 0, countMix = 0,total = 0;
                         XLWorkbook excel = new XLWorkbook(openFileDialog.FileName);
                         var sheet = excel.Worksheet(1);
                         foreach (var row in sheet.RowsUsed())
@@ -237,9 +239,9 @@ namespace ServerSide.Pages
                                     }
                                 }
 
-                                if (data.Count == 16)
+                                if (data.Count == 17)
                                 {
-                                    Log.Information($"add new data : {data[0]},{data[1]}, {data[2]}, {data[3]}, {data[4]}, {data[5]}, {data[6]}, {data[7]}, {data[8]},{data[9]}, {data[10]}, {data[11]}, {data[12]},{data[13]},{data[14]},{data[15]}");
+                                    Log.Information($"add new data : {data[0]},{data[1]}, {data[2]}, {data[3]}, {data[4]}, {data[5]}, {data[6]}, {data[7]}, {data[8]},{data[9]}, {data[10]}, {data[11]}, {data[12]},{data[13]},{data[14]},{data[15]},{data[16]}");
                                     // เช็คว่ามีวันที่ซ้ำกันหรือไม่
                                     if (!dateCreate.Contains(data[15]))
                                     {
@@ -248,7 +250,7 @@ namespace ServerSide.Pages
 
                                     BeginInvoke(new MethodInvoker(delegate ()
                                     {
-                                        dgv.Rows.Add(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9], data[10], data[11], data[12], data[13], data[14], data[15]);
+                                        dgv.Rows.Add(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9], data[10], data[11], data[12], data[13], data[14], data[15], data[16]);
                                     }));
                                 }
 
@@ -264,11 +266,13 @@ namespace ServerSide.Pages
                                         countMix++;
                                         break;
                                 }
+                                total++;
                                 BeginInvoke(new MethodInvoker(delegate ()
                                 {
                                     lblCountBuy.Text = $"{countBuy} รายการ";
                                     lblCountSale.Text = $"{countSele} รายการ";
                                     lblCountMove.Text = $"{countMix} รายการ";
+                                    lblTotalList.Text = $"{total} รายการ"; 
                                 }));
                             }
                             await Task.Delay(50);

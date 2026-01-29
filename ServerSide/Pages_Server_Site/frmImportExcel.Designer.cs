@@ -41,22 +41,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtFileName = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgv = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.cl_jobnumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_weightType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_poBuy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_poSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_suppire = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_customerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_productName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_rawmat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_StartStationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_StartStationType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_EndStationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_EndStationType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_TransportName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_LicensePlate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_DriverName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnImport = new Guna.UI2.WinForms.Guna2Button();
             this.pnLoad = new Guna.UI2.WinForms.Guna2Panel();
             this.lblMessage = new System.Windows.Forms.Label();
@@ -78,6 +62,28 @@
             this.guna2CirclePictureBox2 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.msg = new Guna.UI2.WinForms.Guna2MessageDialog();
+            this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblTotalList = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.guna2CirclePictureBox4 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
+            this.cl_jobnumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_weightType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_poBuy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_poSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_suppire = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_customerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_productName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_rawmat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_StartStationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_StartStationType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_EndStationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_EndStationType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_TransportName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_LicensePlate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_DriverName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_qc_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.pnLoad.SuspendLayout();
@@ -89,6 +95,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).BeginInit();
+            this.guna2Panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2BorderlessForm1
@@ -206,7 +214,8 @@
             this.cl_TransportName,
             this.cl_LicensePlate,
             this.cl_DriverName,
-            this.cl_date});
+            this.cl_date,
+            this.cl_qc_code});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
@@ -255,6 +264,332 @@
             this.dgv.ThemeStyle.RowsStyle.Height = 40;
             this.dgv.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgv.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // btnImport
+            // 
+            this.btnImport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnImport.Animated = true;
+            this.btnImport.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(46)))), ((int)(((byte)(80)))));
+            this.btnImport.BorderRadius = 4;
+            this.btnImport.BorderThickness = 1;
+            this.btnImport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnImport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnImport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnImport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnImport.FillColor = System.Drawing.Color.White;
+            this.btnImport.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(46)))), ((int)(((byte)(80)))));
+            this.btnImport.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(46)))), ((int)(((byte)(80)))));
+            this.btnImport.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnImport.Location = new System.Drawing.Point(1056, 108);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(164, 45);
+            this.btnImport.TabIndex = 19;
+            this.btnImport.Text = "นำเข้าข้อมูล";
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            // 
+            // pnLoad
+            // 
+            this.pnLoad.BorderColor = System.Drawing.Color.Gray;
+            this.pnLoad.BorderRadius = 4;
+            this.pnLoad.BorderThickness = 2;
+            this.pnLoad.Controls.Add(this.lblMessage);
+            this.pnLoad.Controls.Add(this.pictureBox1);
+            this.pnLoad.Location = new System.Drawing.Point(416, 12);
+            this.pnLoad.Name = "pnLoad";
+            this.pnLoad.Size = new System.Drawing.Size(335, 307);
+            this.pnLoad.TabIndex = 21;
+            // 
+            // lblMessage
+            // 
+            this.lblMessage.AutoSize = true;
+            this.lblMessage.Font = new System.Drawing.Font("Athiti", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lblMessage.ForeColor = System.Drawing.Color.Brown;
+            this.lblMessage.Location = new System.Drawing.Point(27, 246);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(274, 43);
+            this.lblMessage.TabIndex = 22;
+            this.lblMessage.Text = "กำลังโหลดไฟล์จาก Excel";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(6, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(321, 296);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 23;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pnInformation
+            // 
+            this.pnInformation.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnInformation.Controls.Add(this.guna2Panel7);
+            this.pnInformation.Controls.Add(this.guna2Panel8);
+            this.pnInformation.Controls.Add(this.guna2Panel5);
+            this.pnInformation.Controls.Add(this.guna2Panel6);
+            this.pnInformation.Controls.Add(this.guna2Panel3);
+            this.pnInformation.Controls.Add(this.guna2Panel4);
+            this.pnInformation.Controls.Add(this.guna2Panel1);
+            this.pnInformation.Controls.Add(this.guna2Panel2);
+            this.pnInformation.Controls.Add(this.dgv);
+            this.pnInformation.Controls.Add(this.txtFileName);
+            this.pnInformation.Controls.Add(this.btnImport);
+            this.pnInformation.Location = new System.Drawing.Point(3, 80);
+            this.pnInformation.Name = "pnInformation";
+            this.pnInformation.Size = new System.Drawing.Size(1227, 674);
+            this.pnInformation.TabIndex = 22;
+            // 
+            // guna2Panel5
+            // 
+            this.guna2Panel5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel5.BorderColor = System.Drawing.Color.Silver;
+            this.guna2Panel5.BorderRadius = 6;
+            this.guna2Panel5.BorderThickness = 1;
+            this.guna2Panel5.Controls.Add(this.lblCountBuy);
+            this.guna2Panel5.Controls.Add(this.label11);
+            this.guna2Panel5.Controls.Add(this.guna2CirclePictureBox3);
+            this.guna2Panel5.Location = new System.Drawing.Point(798, 10);
+            this.guna2Panel5.Name = "guna2Panel5";
+            this.guna2Panel5.Size = new System.Drawing.Size(253, 93);
+            this.guna2Panel5.TabIndex = 29;
+            // 
+            // lblCountBuy
+            // 
+            this.lblCountBuy.AutoSize = true;
+            this.lblCountBuy.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lblCountBuy.ForeColor = System.Drawing.Color.Gray;
+            this.lblCountBuy.Location = new System.Drawing.Point(127, 46);
+            this.lblCountBuy.Name = "lblCountBuy";
+            this.lblCountBuy.Size = new System.Drawing.Size(71, 25);
+            this.lblCountBuy.TabIndex = 26;
+            this.lblCountBuy.Text = "0 รายการ";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Athiti Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label11.ForeColor = System.Drawing.Color.Brown;
+            this.label11.Location = new System.Drawing.Point(126, 5);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(58, 31);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "รับซื้อ";
+            // 
+            // guna2CirclePictureBox3
+            // 
+            this.guna2CirclePictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox3.Image")));
+            this.guna2CirclePictureBox3.ImageRotate = 0F;
+            this.guna2CirclePictureBox3.Location = new System.Drawing.Point(4, 0);
+            this.guna2CirclePictureBox3.Name = "guna2CirclePictureBox3";
+            this.guna2CirclePictureBox3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox3.Size = new System.Drawing.Size(97, 94);
+            this.guna2CirclePictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2CirclePictureBox3.TabIndex = 23;
+            this.guna2CirclePictureBox3.TabStop = false;
+            // 
+            // guna2Panel6
+            // 
+            this.guna2Panel6.BackColor = System.Drawing.Color.White;
+            this.guna2Panel6.BorderColor = System.Drawing.Color.Gray;
+            this.guna2Panel6.BorderRadius = 8;
+            this.guna2Panel6.BorderThickness = 4;
+            this.guna2Panel6.FillColor = System.Drawing.Color.Gray;
+            this.guna2Panel6.Location = new System.Drawing.Point(802, 13);
+            this.guna2Panel6.Name = "guna2Panel6";
+            this.guna2Panel6.Size = new System.Drawing.Size(253, 95);
+            this.guna2Panel6.TabIndex = 30;
+            // 
+            // guna2Panel3
+            // 
+            this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel3.BorderColor = System.Drawing.Color.Silver;
+            this.guna2Panel3.BorderRadius = 6;
+            this.guna2Panel3.BorderThickness = 1;
+            this.guna2Panel3.Controls.Add(this.lblCountMove);
+            this.guna2Panel3.Controls.Add(this.label9);
+            this.guna2Panel3.Controls.Add(this.guna2CirclePictureBox1);
+            this.guna2Panel3.Location = new System.Drawing.Point(535, 9);
+            this.guna2Panel3.Name = "guna2Panel3";
+            this.guna2Panel3.Size = new System.Drawing.Size(253, 93);
+            this.guna2Panel3.TabIndex = 27;
+            // 
+            // lblCountMove
+            // 
+            this.lblCountMove.AutoSize = true;
+            this.lblCountMove.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lblCountMove.ForeColor = System.Drawing.Color.Gray;
+            this.lblCountMove.Location = new System.Drawing.Point(142, 47);
+            this.lblCountMove.Name = "lblCountMove";
+            this.lblCountMove.Size = new System.Drawing.Size(71, 25);
+            this.lblCountMove.TabIndex = 26;
+            this.lblCountMove.Text = "0 รายการ";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Athiti Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label9.ForeColor = System.Drawing.Color.Brown;
+            this.label9.Location = new System.Drawing.Point(141, 6);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(101, 31);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "ขนย้ายคลัง";
+            // 
+            // guna2CirclePictureBox1
+            // 
+            this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
+            this.guna2CirclePictureBox1.ImageRotate = 0F;
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(4, 0);
+            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(97, 94);
+            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2CirclePictureBox1.TabIndex = 21;
+            this.guna2CirclePictureBox1.TabStop = false;
+            // 
+            // guna2Panel4
+            // 
+            this.guna2Panel4.BackColor = System.Drawing.Color.White;
+            this.guna2Panel4.BorderColor = System.Drawing.Color.Gray;
+            this.guna2Panel4.BorderRadius = 8;
+            this.guna2Panel4.BorderThickness = 4;
+            this.guna2Panel4.FillColor = System.Drawing.Color.Gray;
+            this.guna2Panel4.Location = new System.Drawing.Point(539, 12);
+            this.guna2Panel4.Name = "guna2Panel4";
+            this.guna2Panel4.Size = new System.Drawing.Size(253, 95);
+            this.guna2Panel4.TabIndex = 28;
+            // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel1.BorderColor = System.Drawing.Color.Silver;
+            this.guna2Panel1.BorderRadius = 6;
+            this.guna2Panel1.BorderThickness = 1;
+            this.guna2Panel1.Controls.Add(this.lblCountSale);
+            this.guna2Panel1.Controls.Add(this.label5);
+            this.guna2Panel1.Controls.Add(this.guna2CirclePictureBox2);
+            this.guna2Panel1.Location = new System.Drawing.Point(272, 9);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(253, 93);
+            this.guna2Panel1.TabIndex = 24;
+            // 
+            // lblCountSale
+            // 
+            this.lblCountSale.AutoSize = true;
+            this.lblCountSale.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lblCountSale.ForeColor = System.Drawing.Color.Gray;
+            this.lblCountSale.Location = new System.Drawing.Point(142, 47);
+            this.lblCountSale.Name = "lblCountSale";
+            this.lblCountSale.Size = new System.Drawing.Size(71, 25);
+            this.lblCountSale.TabIndex = 26;
+            this.lblCountSale.Text = "0 รายการ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Athiti Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label5.ForeColor = System.Drawing.Color.Brown;
+            this.label5.Location = new System.Drawing.Point(141, 6);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(79, 31);
+            this.label5.TabIndex = 25;
+            this.label5.Text = "ขายออก";
+            // 
+            // guna2CirclePictureBox2
+            // 
+            this.guna2CirclePictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox2.Image")));
+            this.guna2CirclePictureBox2.ImageRotate = 0F;
+            this.guna2CirclePictureBox2.Location = new System.Drawing.Point(8, 0);
+            this.guna2CirclePictureBox2.Name = "guna2CirclePictureBox2";
+            this.guna2CirclePictureBox2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox2.Size = new System.Drawing.Size(114, 101);
+            this.guna2CirclePictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2CirclePictureBox2.TabIndex = 22;
+            this.guna2CirclePictureBox2.TabStop = false;
+            // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.BackColor = System.Drawing.Color.White;
+            this.guna2Panel2.BorderColor = System.Drawing.Color.Gray;
+            this.guna2Panel2.BorderRadius = 8;
+            this.guna2Panel2.BorderThickness = 4;
+            this.guna2Panel2.FillColor = System.Drawing.Color.Gray;
+            this.guna2Panel2.Location = new System.Drawing.Point(276, 12);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(253, 95);
+            this.guna2Panel2.TabIndex = 26;
+            // 
+            // msg
+            // 
+            this.msg.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            this.msg.Caption = null;
+            this.msg.Icon = Guna.UI2.WinForms.MessageDialogIcon.None;
+            this.msg.Parent = this;
+            this.msg.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
+            this.msg.Text = null;
+            // 
+            // guna2Panel7
+            // 
+            this.guna2Panel7.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel7.BorderColor = System.Drawing.Color.Silver;
+            this.guna2Panel7.BorderRadius = 6;
+            this.guna2Panel7.BorderThickness = 1;
+            this.guna2Panel7.Controls.Add(this.lblTotalList);
+            this.guna2Panel7.Controls.Add(this.label4);
+            this.guna2Panel7.Controls.Add(this.guna2CirclePictureBox4);
+            this.guna2Panel7.Location = new System.Drawing.Point(9, 9);
+            this.guna2Panel7.Name = "guna2Panel7";
+            this.guna2Panel7.Size = new System.Drawing.Size(253, 93);
+            this.guna2Panel7.TabIndex = 31;
+            // 
+            // lblTotalList
+            // 
+            this.lblTotalList.AutoSize = true;
+            this.lblTotalList.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lblTotalList.ForeColor = System.Drawing.Color.Gray;
+            this.lblTotalList.Location = new System.Drawing.Point(127, 46);
+            this.lblTotalList.Name = "lblTotalList";
+            this.lblTotalList.Size = new System.Drawing.Size(71, 25);
+            this.lblTotalList.TabIndex = 26;
+            this.lblTotalList.Text = "0 รายการ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Athiti Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label4.ForeColor = System.Drawing.Color.Brown;
+            this.label4.Location = new System.Drawing.Point(115, 5);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(132, 31);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "รายการทั้งหมด";
+            // 
+            // guna2CirclePictureBox4
+            // 
+            this.guna2CirclePictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox4.Image")));
+            this.guna2CirclePictureBox4.ImageRotate = 0F;
+            this.guna2CirclePictureBox4.Location = new System.Drawing.Point(4, 0);
+            this.guna2CirclePictureBox4.Name = "guna2CirclePictureBox4";
+            this.guna2CirclePictureBox4.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox4.Size = new System.Drawing.Size(97, 94);
+            this.guna2CirclePictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2CirclePictureBox4.TabIndex = 23;
+            this.guna2CirclePictureBox4.TabStop = false;
+            // 
+            // guna2Panel8
+            // 
+            this.guna2Panel8.BackColor = System.Drawing.Color.White;
+            this.guna2Panel8.BorderColor = System.Drawing.Color.Gray;
+            this.guna2Panel8.BorderRadius = 8;
+            this.guna2Panel8.BorderThickness = 4;
+            this.guna2Panel8.FillColor = System.Drawing.Color.Gray;
+            this.guna2Panel8.Location = new System.Drawing.Point(13, 12);
+            this.guna2Panel8.Name = "guna2Panel8";
+            this.guna2Panel8.Size = new System.Drawing.Size(253, 95);
+            this.guna2Panel8.TabIndex = 32;
             // 
             // cl_jobnumber
             // 
@@ -359,269 +694,12 @@
             this.cl_date.Name = "cl_date";
             this.cl_date.ReadOnly = true;
             // 
-            // btnImport
+            // cl_qc_code
             // 
-            this.btnImport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnImport.Animated = true;
-            this.btnImport.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(46)))), ((int)(((byte)(80)))));
-            this.btnImport.BorderRadius = 4;
-            this.btnImport.BorderThickness = 1;
-            this.btnImport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnImport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnImport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnImport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnImport.FillColor = System.Drawing.Color.White;
-            this.btnImport.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(46)))), ((int)(((byte)(80)))));
-            this.btnImport.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(46)))), ((int)(((byte)(80)))));
-            this.btnImport.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnImport.Location = new System.Drawing.Point(1056, 108);
-            this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(164, 45);
-            this.btnImport.TabIndex = 19;
-            this.btnImport.Text = "นำเข้าข้อมูล";
-            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
-            // 
-            // pnLoad
-            // 
-            this.pnLoad.BorderColor = System.Drawing.Color.Gray;
-            this.pnLoad.BorderRadius = 4;
-            this.pnLoad.BorderThickness = 2;
-            this.pnLoad.Controls.Add(this.lblMessage);
-            this.pnLoad.Controls.Add(this.pictureBox1);
-            this.pnLoad.Location = new System.Drawing.Point(398, 22);
-            this.pnLoad.Name = "pnLoad";
-            this.pnLoad.Size = new System.Drawing.Size(335, 307);
-            this.pnLoad.TabIndex = 21;
-            // 
-            // lblMessage
-            // 
-            this.lblMessage.AutoSize = true;
-            this.lblMessage.Font = new System.Drawing.Font("Athiti", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblMessage.ForeColor = System.Drawing.Color.Brown;
-            this.lblMessage.Location = new System.Drawing.Point(27, 246);
-            this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(274, 43);
-            this.lblMessage.TabIndex = 22;
-            this.lblMessage.Text = "กำลังโหลดไฟล์จาก Excel";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(6, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(321, 296);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 23;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pnInformation
-            // 
-            this.pnInformation.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnInformation.Controls.Add(this.guna2Panel5);
-            this.pnInformation.Controls.Add(this.guna2Panel6);
-            this.pnInformation.Controls.Add(this.guna2Panel3);
-            this.pnInformation.Controls.Add(this.guna2Panel4);
-            this.pnInformation.Controls.Add(this.guna2Panel1);
-            this.pnInformation.Controls.Add(this.guna2Panel2);
-            this.pnInformation.Controls.Add(this.dgv);
-            this.pnInformation.Controls.Add(this.txtFileName);
-            this.pnInformation.Controls.Add(this.btnImport);
-            this.pnInformation.Location = new System.Drawing.Point(3, 80);
-            this.pnInformation.Name = "pnInformation";
-            this.pnInformation.Size = new System.Drawing.Size(1227, 674);
-            this.pnInformation.TabIndex = 22;
-            // 
-            // guna2Panel5
-            // 
-            this.guna2Panel5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel5.BorderColor = System.Drawing.Color.Silver;
-            this.guna2Panel5.BorderRadius = 6;
-            this.guna2Panel5.BorderThickness = 1;
-            this.guna2Panel5.Controls.Add(this.lblCountBuy);
-            this.guna2Panel5.Controls.Add(this.label11);
-            this.guna2Panel5.Controls.Add(this.guna2CirclePictureBox3);
-            this.guna2Panel5.Location = new System.Drawing.Point(532, 7);
-            this.guna2Panel5.Name = "guna2Panel5";
-            this.guna2Panel5.Size = new System.Drawing.Size(253, 93);
-            this.guna2Panel5.TabIndex = 29;
-            // 
-            // lblCountBuy
-            // 
-            this.lblCountBuy.AutoSize = true;
-            this.lblCountBuy.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblCountBuy.ForeColor = System.Drawing.Color.Gray;
-            this.lblCountBuy.Location = new System.Drawing.Point(127, 46);
-            this.lblCountBuy.Name = "lblCountBuy";
-            this.lblCountBuy.Size = new System.Drawing.Size(71, 25);
-            this.lblCountBuy.TabIndex = 26;
-            this.lblCountBuy.Text = "0 รายการ";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Athiti Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label11.ForeColor = System.Drawing.Color.Brown;
-            this.label11.Location = new System.Drawing.Point(126, 5);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(58, 31);
-            this.label11.TabIndex = 25;
-            this.label11.Text = "รับซื้อ";
-            // 
-            // guna2CirclePictureBox3
-            // 
-            this.guna2CirclePictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox3.Image")));
-            this.guna2CirclePictureBox3.ImageRotate = 0F;
-            this.guna2CirclePictureBox3.Location = new System.Drawing.Point(4, 0);
-            this.guna2CirclePictureBox3.Name = "guna2CirclePictureBox3";
-            this.guna2CirclePictureBox3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox3.Size = new System.Drawing.Size(97, 94);
-            this.guna2CirclePictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2CirclePictureBox3.TabIndex = 23;
-            this.guna2CirclePictureBox3.TabStop = false;
-            // 
-            // guna2Panel6
-            // 
-            this.guna2Panel6.BackColor = System.Drawing.Color.White;
-            this.guna2Panel6.BorderColor = System.Drawing.Color.Gray;
-            this.guna2Panel6.BorderRadius = 8;
-            this.guna2Panel6.BorderThickness = 4;
-            this.guna2Panel6.FillColor = System.Drawing.Color.Gray;
-            this.guna2Panel6.Location = new System.Drawing.Point(536, 10);
-            this.guna2Panel6.Name = "guna2Panel6";
-            this.guna2Panel6.Size = new System.Drawing.Size(253, 95);
-            this.guna2Panel6.TabIndex = 30;
-            // 
-            // guna2Panel3
-            // 
-            this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel3.BorderColor = System.Drawing.Color.Silver;
-            this.guna2Panel3.BorderRadius = 6;
-            this.guna2Panel3.BorderThickness = 1;
-            this.guna2Panel3.Controls.Add(this.lblCountMove);
-            this.guna2Panel3.Controls.Add(this.label9);
-            this.guna2Panel3.Controls.Add(this.guna2CirclePictureBox1);
-            this.guna2Panel3.Location = new System.Drawing.Point(269, 6);
-            this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(253, 93);
-            this.guna2Panel3.TabIndex = 27;
-            // 
-            // lblCountMove
-            // 
-            this.lblCountMove.AutoSize = true;
-            this.lblCountMove.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblCountMove.ForeColor = System.Drawing.Color.Gray;
-            this.lblCountMove.Location = new System.Drawing.Point(142, 47);
-            this.lblCountMove.Name = "lblCountMove";
-            this.lblCountMove.Size = new System.Drawing.Size(71, 25);
-            this.lblCountMove.TabIndex = 26;
-            this.lblCountMove.Text = "0 รายการ";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Athiti Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label9.ForeColor = System.Drawing.Color.Brown;
-            this.label9.Location = new System.Drawing.Point(141, 6);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(101, 31);
-            this.label9.TabIndex = 25;
-            this.label9.Text = "ขนย้ายคลัง";
-            // 
-            // guna2CirclePictureBox1
-            // 
-            this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(4, 0);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(97, 94);
-            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2CirclePictureBox1.TabIndex = 21;
-            this.guna2CirclePictureBox1.TabStop = false;
-            // 
-            // guna2Panel4
-            // 
-            this.guna2Panel4.BackColor = System.Drawing.Color.White;
-            this.guna2Panel4.BorderColor = System.Drawing.Color.Gray;
-            this.guna2Panel4.BorderRadius = 8;
-            this.guna2Panel4.BorderThickness = 4;
-            this.guna2Panel4.FillColor = System.Drawing.Color.Gray;
-            this.guna2Panel4.Location = new System.Drawing.Point(273, 9);
-            this.guna2Panel4.Name = "guna2Panel4";
-            this.guna2Panel4.Size = new System.Drawing.Size(253, 95);
-            this.guna2Panel4.TabIndex = 28;
-            // 
-            // guna2Panel1
-            // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel1.BorderColor = System.Drawing.Color.Silver;
-            this.guna2Panel1.BorderRadius = 6;
-            this.guna2Panel1.BorderThickness = 1;
-            this.guna2Panel1.Controls.Add(this.lblCountSale);
-            this.guna2Panel1.Controls.Add(this.label5);
-            this.guna2Panel1.Controls.Add(this.guna2CirclePictureBox2);
-            this.guna2Panel1.Location = new System.Drawing.Point(6, 6);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(253, 93);
-            this.guna2Panel1.TabIndex = 24;
-            // 
-            // lblCountSale
-            // 
-            this.lblCountSale.AutoSize = true;
-            this.lblCountSale.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblCountSale.ForeColor = System.Drawing.Color.Gray;
-            this.lblCountSale.Location = new System.Drawing.Point(142, 47);
-            this.lblCountSale.Name = "lblCountSale";
-            this.lblCountSale.Size = new System.Drawing.Size(71, 25);
-            this.lblCountSale.TabIndex = 26;
-            this.lblCountSale.Text = "0 รายการ";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Athiti Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label5.ForeColor = System.Drawing.Color.Brown;
-            this.label5.Location = new System.Drawing.Point(141, 6);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 31);
-            this.label5.TabIndex = 25;
-            this.label5.Text = "ขายออก";
-            // 
-            // guna2CirclePictureBox2
-            // 
-            this.guna2CirclePictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox2.Image")));
-            this.guna2CirclePictureBox2.ImageRotate = 0F;
-            this.guna2CirclePictureBox2.Location = new System.Drawing.Point(8, 0);
-            this.guna2CirclePictureBox2.Name = "guna2CirclePictureBox2";
-            this.guna2CirclePictureBox2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox2.Size = new System.Drawing.Size(114, 101);
-            this.guna2CirclePictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2CirclePictureBox2.TabIndex = 22;
-            this.guna2CirclePictureBox2.TabStop = false;
-            // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.BackColor = System.Drawing.Color.White;
-            this.guna2Panel2.BorderColor = System.Drawing.Color.Gray;
-            this.guna2Panel2.BorderRadius = 8;
-            this.guna2Panel2.BorderThickness = 4;
-            this.guna2Panel2.FillColor = System.Drawing.Color.Gray;
-            this.guna2Panel2.Location = new System.Drawing.Point(10, 9);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(253, 95);
-            this.guna2Panel2.TabIndex = 26;
-            // 
-            // msg
-            // 
-            this.msg.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
-            this.msg.Caption = null;
-            this.msg.Icon = Guna.UI2.WinForms.MessageDialogIcon.None;
-            this.msg.Parent = this;
-            this.msg.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
-            this.msg.Text = null;
+            this.cl_qc_code.HeaderText = "QC CODE";
+            this.cl_qc_code.Name = "cl_qc_code";
+            this.cl_qc_code.ReadOnly = true;
+            this.cl_qc_code.Width = 200;
             // 
             // frmImportExcel
             // 
@@ -657,6 +735,9 @@
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).EndInit();
+            this.guna2Panel7.ResumeLayout(false);
+            this.guna2Panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -692,6 +773,11 @@
         private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private Guna.UI2.WinForms.Guna2MessageDialog msg;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
+        private System.Windows.Forms.Label lblTotalList;
+        private System.Windows.Forms.Label label4;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox4;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_jobnumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_weightType;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_poBuy;
@@ -708,5 +794,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_LicensePlate;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_DriverName;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_qc_code;
     }
 }
