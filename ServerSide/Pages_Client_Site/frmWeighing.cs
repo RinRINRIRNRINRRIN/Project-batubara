@@ -201,7 +201,8 @@ namespace ServerSide.Pages_Client_Site
                 EndStationName = orderManageModel.EndStationName,
                 StartStationName = orderManageModel.StartStationName,
                 Employee = accountManagementModel.FullName,
-                ProductNamez = orderManageModel.ProductNamez
+                ProductNamez = orderManageModel.ProductNamez,
+                QcCode = orderManageModel.QcCode
             };
             ThermalPrinter printer = new ThermalPrinter();
             if (!printer.PrintPage(printerModel))
@@ -332,7 +333,7 @@ namespace ServerSide.Pages_Client_Site
                 {
                     case "Planning": // fristweight
                         // check remark empty
-                        if(txtNote.Text == "")
+                        if (txtNote.Text == "")
                         {
                             txtNote.BorderColor = Color.Red;
                             txtNote.BorderThickness = 2;
@@ -371,6 +372,7 @@ namespace ServerSide.Pages_Client_Site
         private async void frmWeighing_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = true;
+            watchdogTimer.Stop();
             lblMessageLoader.Text = "ยกเลิกเชื่อมต่อเครื่องชั่ง";
             pnMain.Visible = false;
             pnLoader.Visible = true;
