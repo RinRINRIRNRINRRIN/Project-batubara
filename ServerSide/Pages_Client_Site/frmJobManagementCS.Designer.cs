@@ -29,33 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmJobManagementCS));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.msg = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.dgv = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.cl_select = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.cl_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_ordernumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_weightType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_jobNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_productname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_rawMat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_customerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_transport = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_licensePlate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_startStationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_endStationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_startStationType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_endStationType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_poBuy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_poSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_driverName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_referenceNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.gbInformation = new Guna.UI2.WinForms.Guna2GroupBox();
             this.lblDriverName = new System.Windows.Forms.Label();
@@ -113,8 +94,29 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnStart = new Guna.UI2.WinForms.Guna2Button();
             this.label15 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.cl_select = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.cl_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_ordernumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_weightType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_jobNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_productname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_rawMat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_customerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_transport = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_licensePlate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_startStationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_endStationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_startStationType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_endStationType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_poBuy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_poSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_driverName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_referenceNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_qc_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSearchLicensePlate = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.guna2GroupBox1.SuspendLayout();
@@ -171,18 +173,21 @@
             // 
             this.dgv.AllowUserToAddRows = false;
             this.dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
             this.dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(30)))), ((int)(((byte)(62)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(30)))), ((int)(((byte)(62)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(30)))), ((int)(((byte)(62)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(30)))), ((int)(((byte)(62)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgv.ColumnHeadersHeight = 55;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -204,23 +209,23 @@
             this.cl_poSale,
             this.cl_driverName,
             this.cl_status,
-            this.cl_referenceNumber});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cl_referenceNumber,
+            this.cl_qc_code});
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgv.Location = new System.Drawing.Point(5, 45);
+            this.dgv.Location = new System.Drawing.Point(5, 91);
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
             this.dgv.RowHeadersVisible = false;
             this.dgv.RowTemplate.Height = 35;
-            this.dgv.Size = new System.Drawing.Size(1655, 426);
+            this.dgv.Size = new System.Drawing.Size(1655, 380);
             this.dgv.TabIndex = 16;
             this.dgv.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgv.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -245,139 +250,6 @@
             this.dgv.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellContentClick);
             // 
-            // cl_select
-            // 
-            this.cl_select.HeaderText = "";
-            this.cl_select.Name = "cl_select";
-            this.cl_select.ReadOnly = true;
-            this.cl_select.Text = "เลือกรายการ";
-            this.cl_select.UseColumnTextForButtonValue = true;
-            // 
-            // cl_id
-            // 
-            this.cl_id.HeaderText = "Id";
-            this.cl_id.Name = "cl_id";
-            this.cl_id.ReadOnly = true;
-            this.cl_id.Visible = false;
-            // 
-            // cl_ordernumber
-            // 
-            this.cl_ordernumber.HeaderText = "เลขที่การชั่ง";
-            this.cl_ordernumber.Name = "cl_ordernumber";
-            this.cl_ordernumber.ReadOnly = true;
-            this.cl_ordernumber.Width = 130;
-            // 
-            // cl_weightType
-            // 
-            this.cl_weightType.HeaderText = "ประเภทงาน , ประเภทการชั่ง";
-            this.cl_weightType.Name = "cl_weightType";
-            this.cl_weightType.ReadOnly = true;
-            this.cl_weightType.Width = 150;
-            // 
-            // cl_jobNumber
-            // 
-            this.cl_jobNumber.HeaderText = "เลขที่ใบงาน";
-            this.cl_jobNumber.Name = "cl_jobNumber";
-            this.cl_jobNumber.ReadOnly = true;
-            this.cl_jobNumber.Width = 130;
-            // 
-            // cl_productname
-            // 
-            this.cl_productname.HeaderText = "ชื่อสินค้า";
-            this.cl_productname.Name = "cl_productname";
-            this.cl_productname.ReadOnly = true;
-            // 
-            // cl_rawMat
-            // 
-            this.cl_rawMat.HeaderText = "ชื่อวัตถุดิบ";
-            this.cl_rawMat.Name = "cl_rawMat";
-            this.cl_rawMat.ReadOnly = true;
-            this.cl_rawMat.Width = 210;
-            // 
-            // cl_customerName
-            // 
-            this.cl_customerName.HeaderText = "ชื่อลูกค้า / บริษัท";
-            this.cl_customerName.Name = "cl_customerName";
-            this.cl_customerName.ReadOnly = true;
-            this.cl_customerName.Width = 210;
-            // 
-            // cl_transport
-            // 
-            this.cl_transport.HeaderText = "บริษัทขนส่ง";
-            this.cl_transport.Name = "cl_transport";
-            this.cl_transport.ReadOnly = true;
-            this.cl_transport.Width = 180;
-            // 
-            // cl_licensePlate
-            // 
-            this.cl_licensePlate.HeaderText = "ทะเบียนรถ";
-            this.cl_licensePlate.Name = "cl_licensePlate";
-            this.cl_licensePlate.ReadOnly = true;
-            this.cl_licensePlate.Width = 150;
-            // 
-            // cl_startStationName
-            // 
-            this.cl_startStationName.HeaderText = "สถานีเริ่มต้น";
-            this.cl_startStationName.Name = "cl_startStationName";
-            this.cl_startStationName.ReadOnly = true;
-            this.cl_startStationName.Width = 200;
-            // 
-            // cl_endStationName
-            // 
-            this.cl_endStationName.HeaderText = "สถานีปลายทาง";
-            this.cl_endStationName.Name = "cl_endStationName";
-            this.cl_endStationName.ReadOnly = true;
-            this.cl_endStationName.Width = 200;
-            // 
-            // cl_startStationType
-            // 
-            this.cl_startStationType.HeaderText = "ประเภทสถานีเริ่มต้น";
-            this.cl_startStationType.Name = "cl_startStationType";
-            this.cl_startStationType.ReadOnly = true;
-            this.cl_startStationType.Width = 150;
-            // 
-            // cl_endStationType
-            // 
-            this.cl_endStationType.HeaderText = "ประเภทสถานีปลายทาง";
-            this.cl_endStationType.Name = "cl_endStationType";
-            this.cl_endStationType.ReadOnly = true;
-            this.cl_endStationType.Width = 150;
-            // 
-            // cl_poBuy
-            // 
-            this.cl_poBuy.HeaderText = "PO Buy";
-            this.cl_poBuy.Name = "cl_poBuy";
-            this.cl_poBuy.ReadOnly = true;
-            this.cl_poBuy.Width = 200;
-            // 
-            // cl_poSale
-            // 
-            this.cl_poSale.HeaderText = "PO Sale";
-            this.cl_poSale.Name = "cl_poSale";
-            this.cl_poSale.ReadOnly = true;
-            this.cl_poSale.Width = 200;
-            // 
-            // cl_driverName
-            // 
-            this.cl_driverName.HeaderText = "พนักงานขับรถ";
-            this.cl_driverName.Name = "cl_driverName";
-            this.cl_driverName.ReadOnly = true;
-            this.cl_driverName.Width = 150;
-            // 
-            // cl_status
-            // 
-            this.cl_status.HeaderText = "Status";
-            this.cl_status.Name = "cl_status";
-            this.cl_status.ReadOnly = true;
-            this.cl_status.Visible = false;
-            // 
-            // cl_referenceNumber
-            // 
-            this.cl_referenceNumber.HeaderText = "เลขที่อ้างอิง";
-            this.cl_referenceNumber.Name = "cl_referenceNumber";
-            this.cl_referenceNumber.ReadOnly = true;
-            this.cl_referenceNumber.Width = 150;
-            // 
             // guna2GroupBox1
             // 
             this.guna2GroupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -385,6 +257,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2GroupBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(29)))), ((int)(((byte)(67)))));
             this.guna2GroupBox1.BorderRadius = 4;
+            this.guna2GroupBox1.Controls.Add(this.label19);
+            this.guna2GroupBox1.Controls.Add(this.txtSearchLicensePlate);
             this.guna2GroupBox1.Controls.Add(this.dgv);
             this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(29)))), ((int)(((byte)(67)))));
             this.guna2GroupBox1.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1134,16 +1008,6 @@
             this.label15.TabIndex = 58;
             this.label15.Text = "รายการถที่ต้องชั่งทั้งหมด จะแสดงเฉพาะรายการที่รอบชั่ง กับรายการที่กำลังชั่ง ";
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(8, 86);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(143, 25);
-            this.label19.TabIndex = 59;
-            this.label19.Text = "F5 สำหรับรีเฟรชข้อมูล";
-            // 
             // guna2Panel1
             // 
             this.guna2Panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1155,7 +1019,6 @@
             this.guna2Panel1.Controls.Add(this.pictureBox3);
             this.guna2Panel1.Controls.Add(this.guna2ControlBox1);
             this.guna2Panel1.Controls.Add(this.btnStart);
-            this.guna2Panel1.Controls.Add(this.label19);
             this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Controls.Add(this.label15);
             this.guna2Panel1.Controls.Add(this.guna2GroupBox1);
@@ -1165,6 +1028,179 @@
             this.guna2Panel1.Size = new System.Drawing.Size(1677, 1012);
             this.guna2Panel1.TabIndex = 60;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
+            // 
+            // cl_select
+            // 
+            this.cl_select.HeaderText = "";
+            this.cl_select.Name = "cl_select";
+            this.cl_select.ReadOnly = true;
+            this.cl_select.Text = "เลือกรายการ";
+            this.cl_select.UseColumnTextForButtonValue = true;
+            // 
+            // cl_id
+            // 
+            this.cl_id.HeaderText = "Id";
+            this.cl_id.Name = "cl_id";
+            this.cl_id.ReadOnly = true;
+            this.cl_id.Visible = false;
+            // 
+            // cl_ordernumber
+            // 
+            this.cl_ordernumber.HeaderText = "เลขที่การชั่ง";
+            this.cl_ordernumber.Name = "cl_ordernumber";
+            this.cl_ordernumber.ReadOnly = true;
+            this.cl_ordernumber.Width = 130;
+            // 
+            // cl_weightType
+            // 
+            this.cl_weightType.HeaderText = "ประเภทงาน , ประเภทการชั่ง";
+            this.cl_weightType.Name = "cl_weightType";
+            this.cl_weightType.ReadOnly = true;
+            this.cl_weightType.Width = 150;
+            // 
+            // cl_jobNumber
+            // 
+            this.cl_jobNumber.HeaderText = "เลขที่ใบงาน";
+            this.cl_jobNumber.Name = "cl_jobNumber";
+            this.cl_jobNumber.ReadOnly = true;
+            this.cl_jobNumber.Width = 130;
+            // 
+            // cl_productname
+            // 
+            this.cl_productname.HeaderText = "ชื่อสินค้า";
+            this.cl_productname.Name = "cl_productname";
+            this.cl_productname.ReadOnly = true;
+            // 
+            // cl_rawMat
+            // 
+            this.cl_rawMat.HeaderText = "ชื่อวัตถุดิบ";
+            this.cl_rawMat.Name = "cl_rawMat";
+            this.cl_rawMat.ReadOnly = true;
+            this.cl_rawMat.Width = 210;
+            // 
+            // cl_customerName
+            // 
+            this.cl_customerName.HeaderText = "ชื่อลูกค้า / บริษัท";
+            this.cl_customerName.Name = "cl_customerName";
+            this.cl_customerName.ReadOnly = true;
+            this.cl_customerName.Width = 210;
+            // 
+            // cl_transport
+            // 
+            this.cl_transport.HeaderText = "บริษัทขนส่ง";
+            this.cl_transport.Name = "cl_transport";
+            this.cl_transport.ReadOnly = true;
+            this.cl_transport.Width = 180;
+            // 
+            // cl_licensePlate
+            // 
+            this.cl_licensePlate.HeaderText = "ทะเบียนรถ";
+            this.cl_licensePlate.Name = "cl_licensePlate";
+            this.cl_licensePlate.ReadOnly = true;
+            this.cl_licensePlate.Width = 150;
+            // 
+            // cl_startStationName
+            // 
+            this.cl_startStationName.HeaderText = "สถานีเริ่มต้น";
+            this.cl_startStationName.Name = "cl_startStationName";
+            this.cl_startStationName.ReadOnly = true;
+            this.cl_startStationName.Width = 200;
+            // 
+            // cl_endStationName
+            // 
+            this.cl_endStationName.HeaderText = "สถานีปลายทาง";
+            this.cl_endStationName.Name = "cl_endStationName";
+            this.cl_endStationName.ReadOnly = true;
+            this.cl_endStationName.Width = 200;
+            // 
+            // cl_startStationType
+            // 
+            this.cl_startStationType.HeaderText = "ประเภทสถานีเริ่มต้น";
+            this.cl_startStationType.Name = "cl_startStationType";
+            this.cl_startStationType.ReadOnly = true;
+            this.cl_startStationType.Width = 150;
+            // 
+            // cl_endStationType
+            // 
+            this.cl_endStationType.HeaderText = "ประเภทสถานีปลายทาง";
+            this.cl_endStationType.Name = "cl_endStationType";
+            this.cl_endStationType.ReadOnly = true;
+            this.cl_endStationType.Width = 150;
+            // 
+            // cl_poBuy
+            // 
+            this.cl_poBuy.HeaderText = "PO Buy";
+            this.cl_poBuy.Name = "cl_poBuy";
+            this.cl_poBuy.ReadOnly = true;
+            this.cl_poBuy.Width = 200;
+            // 
+            // cl_poSale
+            // 
+            this.cl_poSale.HeaderText = "PO Sale";
+            this.cl_poSale.Name = "cl_poSale";
+            this.cl_poSale.ReadOnly = true;
+            this.cl_poSale.Width = 200;
+            // 
+            // cl_driverName
+            // 
+            this.cl_driverName.HeaderText = "พนักงานขับรถ";
+            this.cl_driverName.Name = "cl_driverName";
+            this.cl_driverName.ReadOnly = true;
+            this.cl_driverName.Width = 150;
+            // 
+            // cl_status
+            // 
+            this.cl_status.HeaderText = "Status";
+            this.cl_status.Name = "cl_status";
+            this.cl_status.ReadOnly = true;
+            this.cl_status.Visible = false;
+            // 
+            // cl_referenceNumber
+            // 
+            this.cl_referenceNumber.HeaderText = "เลขที่อ้างอิง";
+            this.cl_referenceNumber.Name = "cl_referenceNumber";
+            this.cl_referenceNumber.ReadOnly = true;
+            this.cl_referenceNumber.Width = 150;
+            // 
+            // cl_qc_code
+            // 
+            this.cl_qc_code.HeaderText = "QC Code";
+            this.cl_qc_code.Name = "cl_qc_code";
+            this.cl_qc_code.ReadOnly = true;
+            this.cl_qc_code.Width = 200;
+            // 
+            // txtSearchLicensePlate
+            // 
+            this.txtSearchLicensePlate.BorderRadius = 4;
+            this.txtSearchLicensePlate.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearchLicensePlate.DefaultText = "";
+            this.txtSearchLicensePlate.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSearchLicensePlate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSearchLicensePlate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearchLicensePlate.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearchLicensePlate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearchLicensePlate.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchLicensePlate.ForeColor = System.Drawing.Color.Black;
+            this.txtSearchLicensePlate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearchLicensePlate.Location = new System.Drawing.Point(213, 50);
+            this.txtSearchLicensePlate.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtSearchLicensePlate.Name = "txtSearchLicensePlate";
+            this.txtSearchLicensePlate.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.txtSearchLicensePlate.PlaceholderText = "ค้นหาทะเบียนรถ";
+            this.txtSearchLicensePlate.SelectedText = "";
+            this.txtSearchLicensePlate.Size = new System.Drawing.Size(356, 33);
+            this.txtSearchLicensePlate.TabIndex = 59;
+            this.txtSearchLicensePlate.TextChanged += new System.EventHandler(this.txtSearchLicensePlate_TextChanged);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.ForeColor = System.Drawing.Color.Black;
+            this.label19.Location = new System.Drawing.Point(8, 55);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(199, 25);
+            this.label19.TabIndex = 59;
+            this.label19.Text = "พิมพ์ทะเบียนใกล้เคียงเพื่อค้นหา";
             // 
             // frmJobManagementCS
             // 
@@ -1186,6 +1222,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.guna2GroupBox1.ResumeLayout(false);
+            this.guna2GroupBox1.PerformLayout();
             this.gbInformation.ResumeLayout(false);
             this.gbInformation.PerformLayout();
             this.gbReferenceNumber.ResumeLayout(false);
@@ -1244,6 +1281,26 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label lblRawMat;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.PictureBox pbLoadFirstWeight;
+        private System.Windows.Forms.Label lblNotFoundFirstWeight;
+        private System.Windows.Forms.Panel pnFirstWeight;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblDateTimeFirstWeight;
+        private System.Windows.Forms.Label lblEmployeeFirstWeight;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lblWeightFirstWeight;
+        private System.Windows.Forms.Label label15;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2TextBox txtOutSideNetWeight;
+        private Guna.UI2.WinForms.Guna2TextBox txtOutSideSecondWeight;
+        private Guna.UI2.WinForms.Guna2TextBox txtOutSideFirstWeight;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label27;
         private System.Windows.Forms.DataGridViewButtonColumn cl_select;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_ordernumber;
@@ -1263,26 +1320,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_driverName;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_status;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_referenceNumber;
-        private System.Windows.Forms.PictureBox pbLoadFirstWeight;
-        private System.Windows.Forms.Label lblNotFoundFirstWeight;
-        private System.Windows.Forms.Panel pnFirstWeight;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lblDateTimeFirstWeight;
-        private System.Windows.Forms.Label lblEmployeeFirstWeight;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label lblWeightFirstWeight;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_qc_code;
+        private Guna.UI2.WinForms.Guna2TextBox txtSearchLicensePlate;
         private System.Windows.Forms.Label label19;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2TextBox txtOutSideNetWeight;
-        private Guna.UI2.WinForms.Guna2TextBox txtOutSideSecondWeight;
-        private Guna.UI2.WinForms.Guna2TextBox txtOutSideFirstWeight;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label27;
     }
 }

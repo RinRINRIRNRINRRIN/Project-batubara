@@ -39,7 +39,7 @@ namespace ServerSide.Pages_Client_Site
             if (orderManageModels != null)
                 foreach (var item in orderManageModels)
                 {
-                    dgv.Rows.Add("", item.Id, item.OrderNumber, item.WeightType, item.JobNumber, item.ProductNamez, item.RawMatName, item.CustomerName, item.TransportName, item.LIcensePlate, item.StartStationName, item.EndStationName, item.StartStationType, item.EndStationType, item.PoBuy, item.PoSale, item.DriverName, item.Status, item.ReferenceNumber);
+                    dgv.Rows.Add("", item.Id, item.OrderNumber, item.WeightType, item.JobNumber, item.ProductNamez, item.RawMatName, item.CustomerName, item.TransportName, item.LIcensePlate, item.StartStationName, item.EndStationName, item.StartStationType, item.EndStationType, item.PoBuy, item.PoSale, item.DriverName, item.Status, item.ReferenceNumber, item.QcCode);
                 }
         }
 
@@ -235,6 +235,21 @@ namespace ServerSide.Pages_Client_Site
                 // e.Handled = true หมายถึง "จัดการแล้ว" (ไม่ต้องทำต่อ) 
                 // ผลลัพธ์คือตัวอักษรนั้นจะไม่ถูกพิมพ์ลงใน TextBox
                 e.Handled = true;
+            }
+        }
+
+        private void txtSearchLicensePlate_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = txtSearchLicensePlate.Text.ToLower();
+            dgv.CurrentCell = null;
+
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                var cellValue = row.Cells[9].Value?.ToString().ToLower() ?? "";
+                if (cellValue.Contains(searchText))
+                    row.Visible = true;
+                else
+                    row.Visible = false;
             }
         }
     }
