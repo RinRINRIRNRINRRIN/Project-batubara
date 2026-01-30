@@ -37,6 +37,7 @@ namespace ServerSide.Pages_Client_Site
         private WeightDetailModel model;
         private SecondWeightModel secondWeightModel;
         private Comport comport = new Comport();
+        private System.Timers.Timer watchdogTimer;
 
         int newWeight = 0;
         int lastWeight = 0;
@@ -76,6 +77,18 @@ namespace ServerSide.Pages_Client_Site
                 lblStatus.Text = "ประเภทชั่ง : ชั่งเข้า";
             }
 
+            watchdogTimer = new System.Timers.Timer();
+            watchdogTimer.Elapsed += WatchdogTimer_Elapsed;
+            watchdogTimer.AutoReset = false;
+
+        }
+
+        private void WatchdogTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            BeginInvoke(new MethodInvoker(delegate ()
+            {
+                lblWeight.Text = "ERROR";
+            }));
         }
 
         bool SaveFirstWeight()
@@ -238,6 +251,8 @@ namespace ServerSide.Pages_Client_Site
                 this.Close();
                 return;
             }
+
+            watchdogTimer.Start();
             await Task.Delay(2000);
             lblMessageLoader.Text = "สำเร็จ";
             pnLoader.Visible = false;
@@ -248,6 +263,8 @@ namespace ServerSide.Pages_Client_Site
         {
             try
             {
+                watchdogTimer.Stop();
+                watchdogTimer.Start();
                 string res = "";
                 res = comport.ReceiveWeight(serialPort1);
                 int _weight = 0;
