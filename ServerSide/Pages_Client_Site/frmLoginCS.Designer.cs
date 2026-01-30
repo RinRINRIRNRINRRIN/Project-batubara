@@ -43,7 +43,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.msg = new Guna.UI2.WinForms.Guna2MessageDialog();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblVersion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbLoader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -72,7 +72,7 @@
             this.gbLoader.CustomBorderThickness = new System.Windows.Forms.Padding(0);
             this.gbLoader.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbLoader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.gbLoader.Location = new System.Drawing.Point(382, 198);
+            this.gbLoader.Location = new System.Drawing.Point(382, 172);
             this.gbLoader.Name = "gbLoader";
             this.gbLoader.Size = new System.Drawing.Size(345, 78);
             this.gbLoader.TabIndex = 18;
@@ -103,7 +103,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label2.ForeColor = System.Drawing.Color.Brown;
-            this.label2.Location = new System.Drawing.Point(612, 59);
+            this.label2.Location = new System.Drawing.Point(612, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 25);
             this.label2.TabIndex = 17;
@@ -129,7 +129,7 @@
             this.btnLogin.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.btnLogin.HoverState.FillColor = System.Drawing.Color.Brown;
             this.btnLogin.HoverState.FillColor2 = System.Drawing.Color.Maroon;
-            this.btnLogin.Location = new System.Drawing.Point(466, 282);
+            this.btnLogin.Location = new System.Drawing.Point(466, 256);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(180, 44);
             this.btnLogin.TabIndex = 16;
@@ -141,7 +141,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Athiti SemiBold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label1.ForeColor = System.Drawing.Color.Brown;
-            this.label1.Location = new System.Drawing.Point(615, 20);
+            this.label1.Location = new System.Drawing.Point(615, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(112, 39);
             this.label1.TabIndex = 15;
@@ -151,7 +151,7 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.White;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(500, 20);
+            this.pictureBox3.Location = new System.Drawing.Point(500, 8);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(72, 69);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -174,7 +174,7 @@
             this.txtPassword.Font = new System.Drawing.Font("Athiti", 12F);
             this.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPassword.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtPassword.IconLeft")));
-            this.txtPassword.Location = new System.Drawing.Point(421, 234);
+            this.txtPassword.Location = new System.Drawing.Point(421, 208);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PlaceholderText = "รหัสผ่าน";
@@ -199,7 +199,7 @@
             this.txtUsername.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtUsername.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtUsername.IconLeft")));
-            this.txtUsername.Location = new System.Drawing.Point(421, 190);
+            this.txtUsername.Location = new System.Drawing.Point(421, 164);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PlaceholderText = "ชื่อผู้ใช้";
@@ -213,7 +213,7 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.White;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(367, 15);
+            this.pictureBox2.Location = new System.Drawing.Point(367, 3);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(363, 167);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -236,14 +236,14 @@
             this.msg.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
             this.msg.Text = null;
             // 
-            // label3
+            // lblVersion
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(366, 303);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 25);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "uat 1.0.2";
+            this.lblVersion.AutoSize = true;
+            this.lblVersion.Location = new System.Drawing.Point(366, 306);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(71, 25);
+            this.lblVersion.TabIndex = 19;
+            this.lblVersion.Text = "uat 1.0.2";
             // 
             // frmLoginCS
             // 
@@ -251,7 +251,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(735, 335);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.gbLoader);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnLogin);
@@ -294,6 +294,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private Guna.UI2.WinForms.Guna2MessageDialog msg;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblVersion;
     }
 }

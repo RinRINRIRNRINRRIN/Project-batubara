@@ -1,4 +1,5 @@
-﻿using Serilog;
+﻿using DocumentFormat.OpenXml.Bibliography;
+using Serilog;
 using ServerSide.Dbcontent;
 using ServerSide.Models;
 using ServerSide.Pages;
@@ -12,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TruckScale.functions;
 
 namespace ServerSide.Pages_Client_Site
 {
@@ -77,6 +79,8 @@ namespace ServerSide.Pages_Client_Site
 
         private async void frmLoginCS_Load(object sender, EventArgs e)
         {
+            VersionF versionF = new VersionF();
+            lblVersion.Text = $"V{versionF.GetFullVersion()},Build Date : {versionF.GetBuildDate()}";
             // ทดสอบเชื่อมต่อ
             await TestConnect();
         }
