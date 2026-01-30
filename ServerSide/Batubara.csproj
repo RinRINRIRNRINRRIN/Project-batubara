@@ -11,7 +11,7 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Deterministic>true</Deterministic>
+    <Deterministic>false</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
@@ -154,6 +154,7 @@
     </Compile>
     <Compile Include="Functions\Comport.cs" />
     <Compile Include="Functions\ThermalPrinter.cs" />
+    <Compile Include="Functions\VersionF.cs" />
     <Compile Include="Models\AccountManagementModel.cs" />
     <Compile Include="Models\FirstWeightModel.cs" />
     <Compile Include="Models\ImportExcelModel.cs" />
