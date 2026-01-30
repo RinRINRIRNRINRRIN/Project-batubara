@@ -56,6 +56,7 @@ namespace ServerSide.Pages
             ImportExcelModel model = new ImportExcelModel();
             int numSuccess = 0;
             int numError = 0;
+            string errorMessage = "";
             OrderManagementDb orderManagementDb = new OrderManagementDb();
             foreach (DataGridViewRow rw in dgv.Rows)
             {
@@ -82,7 +83,10 @@ namespace ServerSide.Pages
                     numSuccess++;
                 }
                 else
+                {
                     numError++;
+                    errorMessage += "\n" + errorMessage;
+                }
             }
 
             if (numError > 0)
