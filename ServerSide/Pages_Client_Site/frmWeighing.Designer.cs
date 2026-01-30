@@ -36,6 +36,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.gbInformation = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.txtNote = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblOrdernumber = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -89,7 +90,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblStatus = new System.Windows.Forms.Label();
             this.tmCheckWeight = new System.Windows.Forms.Timer(this.components);
-            this.txtNote = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.gbInformation.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
@@ -153,7 +153,7 @@
             // 
             // gbInformation
             // 
-            this.gbInformation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.gbInformation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbInformation.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.gbInformation.BorderRadius = 4;
@@ -171,7 +171,27 @@
             this.gbInformation.Size = new System.Drawing.Size(1012, 444);
             this.gbInformation.TabIndex = 19;
             this.gbInformation.Text = "รายการที่ต้องชั่ง";
-            this.gbInformation.Click += new System.EventHandler(this.gbInformation_Click);
+            // 
+            // txtNote
+            // 
+            this.txtNote.BorderColor = System.Drawing.Color.LightGray;
+            this.txtNote.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNote.DefaultText = "";
+            this.txtNote.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtNote.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtNote.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNote.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNote.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNote.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNote.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNote.Location = new System.Drawing.Point(31, 391);
+            this.txtNote.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtNote.Name = "txtNote";
+            this.txtNote.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txtNote.PlaceholderText = "Remark";
+            this.txtNote.SelectedText = "";
+            this.txtNote.Size = new System.Drawing.Size(470, 44);
+            this.txtNote.TabIndex = 26;
             // 
             // guna2Panel5
             // 
@@ -801,7 +821,7 @@
             // 
             // guna2Panel2
             // 
-            this.guna2Panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.guna2Panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel2.BorderColor = System.Drawing.Color.Silver;
             this.guna2Panel2.BorderRadius = 6;
@@ -840,27 +860,6 @@
             // 
             this.tmCheckWeight.Interval = 5000;
             this.tmCheckWeight.Tick += new System.EventHandler(this.tmCheckWeight_Tick);
-            // 
-            // txtNote
-            // 
-            this.txtNote.BorderColor = System.Drawing.Color.LightGray;
-            this.txtNote.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNote.DefaultText = "";
-            this.txtNote.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtNote.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtNote.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNote.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNote.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNote.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNote.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNote.Location = new System.Drawing.Point(31, 391);
-            this.txtNote.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txtNote.Name = "txtNote";
-            this.txtNote.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txtNote.PlaceholderText = "Remark";
-            this.txtNote.SelectedText = "";
-            this.txtNote.Size = new System.Drawing.Size(470, 44);
-            this.txtNote.TabIndex = 26;
             // 
             // frmWeighing
             // 

@@ -391,10 +391,5 @@ namespace ServerSide.Pages_Client_Site
             btnStausWeight.BorderColor = Color.FromArgb(46, 125, 50);
             btnStausWeight.Text = "STABLE";
         }
-
-        private void gbInformation_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
