@@ -20,5 +20,7 @@ namespace ServerSide.Models
         public string Employee { get; set; }
 
         public string ProductNamez { get; set; }
+
+       public string QcCode { get; set; }
     }
 }
