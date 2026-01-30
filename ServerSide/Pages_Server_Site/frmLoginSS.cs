@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TruckScale.functions;
 namespace ServerSide
 {
     public partial class frmLoginSS : Form
@@ -52,6 +53,8 @@ namespace ServerSide
 
         private async void frmLogin_Load(object sender, EventArgs e)
         {
+            VersionF versionF = new VersionF();
+            lblVersion.Text = $"V{versionF.GetFullVersion()},Build Date : {versionF.GetBuildDate()}";
 
             // ทดสอบเชื่อมต่อ
             await TestConnect();
