@@ -69,12 +69,12 @@ namespace ServerSide.Pages_Client_Site
             txtNote.Text = _orderModel.Remark;
             if (_orderModel.Status == "Process")
             {
-                txtNote.Enabled = false;
+                txtNote.Enabled = true;
                 lblStatus.Text = "ประเภทชั่ง : ชั่งออก";
             }
             else if (_orderModel.Status == "Planning")
             {
-                txtNote.Enabled = true;
+                txtNote.Enabled = false;
                 lblStatus.Text = "ประเภทชั่ง : ชั่งเข้า";
             }
 
