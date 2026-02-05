@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,14 +18,16 @@ namespace ServerSide.Functions
 {
     internal class ThermalPrinter
     {
-        public ThermalPrinter()
+        public ThermalPrinter(string _printerName)
         {
-            printerName = ConfigurationManager.AppSettings["PrinterName"];
+            printerName = _printerName;
             encodingPage = "TIS-620";
             // 1. กำหนดชื่อเครื่องพิมพ์ที่เลือกจาก ComboBox ให้กับ PrintDocument
             PrintDocument.PrinterSettings.PrinterName = printerName;
             PrintDocument.PrintPage += PrintDocument_PrintPage;
         }
+        PictureBox pictureBox2 = new PictureBox();
+        ThermalPrinterModel printerModel = new ThermalPrinterModel();
 
         PrintDocument PrintDocument = new PrintDocument();
 
@@ -134,45 +137,50 @@ namespace ServerSide.Functions
 
         public bool PrintPage(ThermalPrinterModel _model)
         {
-            try
-            {
-                Log.Information("== PrintPage Thermal");
-                string _json = JsonConvert.SerializeObject(_model);
-                Log.Information(_json);
-                //--------------- Header
-                Printer printer = new Printer(printerName, encodingPage);
-                Bitmap bitmap = new Bitmap(_model.Logo, 2500, 1200);
-                printer.Image(bitmap);
-                printer.NewLines(2);
-                //--------------- Header
-                printer.AlignLeft();
-                printer.DoubleWidth2();
-                printer.Append($"ทะเบียนรถ : {_model.LicensePLate}");
-                printer.Append($" เลขที่ชั่ง : {_model.OrderNumber}");
-                printer.Append($" เลขที่ใบงาน : {_model.JobNumber}");
-                printer.Append($" บ.ขนส่ง : {_model.TransportName}");
-                //--------------- Body
-                printer.NewLines(3);
-                printer.Append(" วันเวลาที่พิมพ์ : " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss", System.Globalization.CultureInfo.CreateSpecificCulture("TH-th")));
-                printer.NewLines(3);
-                printer.Append($"QC Code : {_model.QcCode}");
-                printer.NewLines(6);    
-                printer.Append($"พนักงานออกบัตร : {_model.Employee}");
-                printer.Append($"{_model.Employee}");
-
-                //-------------- Footer
-                printer.Separator();
-                printer.FullPaperCut();
-                printer.PrintDocument();
-                Log.Information("printPage thermal success");
-            }
-            catch (Exception ex)
-            {
-                Error = ex.Message;
-                Log.Error("ThermalPrinter,PrintPage : " + Error);
-                return false;
-            }
+            pictureBox2.Image = _model.Logo;
+            printerModel = _model;
+          
+            PrintDocument.Print();
             return true;
+            //try
+            //{
+            //    Log.Information("== PrintPage Thermal");
+            //    string _json = JsonConvert.SerializeObject(_model);
+            //    Log.Information(_json);
+            //    //--------------- Header
+            //    Printer printer = new Printer(printerName, encodingPage);
+            //    Bitmap bitmap = new Bitmap(_model.Logo, 2500, 1200);
+            //    printer.Image(bitmap);
+            //    printer.NewLines(2);
+            //    //--------------- Header
+            //    printer.AlignLeft();
+            //    printer.DoubleWidth2();
+            //    printer.Append($"ทะเบียนรถ : {_model.LicensePLate}");
+            //    printer.Append($" เลขที่ชั่ง : {_model.OrderNumber}");
+            //    printer.Append($" เลขที่ใบงาน : {_model.JobNumber}");
+            //    printer.Append($" บ.ขนส่ง : {_model.TransportName}");
+            //    //--------------- Body
+            //    printer.NewLines(3);
+            //    printer.Append(" วันเวลาที่พิมพ์ : " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss", System.Globalization.CultureInfo.CreateSpecificCulture("TH-th")));
+            //    printer.NewLines(3);
+            //    printer.Append($"QC Code : {_model.QcCode}");
+            //    printer.NewLines(6);
+            //    printer.Append($"พนักงานออกบัตร : {_model.Employee}");
+            //    printer.Append($"{_model.Employee}");
+
+            //    //-------------- Footer
+            //    printer.Separator();
+            //    printer.FullPaperCut();
+            //    printer.PrintDocument();
+            //    Log.Information("printPage thermal success");
+            //}
+            //catch (Exception ex)
+            //{
+            //    Error = ex.Message;
+            //    Log.Error("ThermalPrinter,PrintPage : " + Error);
+            //    return false;
+            //}
+            //return true;
 
         }
 
