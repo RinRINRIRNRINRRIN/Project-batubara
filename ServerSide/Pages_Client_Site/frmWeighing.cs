@@ -31,6 +31,7 @@ namespace ServerSide.Pages_Client_Site
             pnLoader.Location = new Point(x, y);
         }
         private static string scaleName = ConfigurationManager.AppSettings["SCALENAME"];
+        private static string printerName = ConfigurationManager.AppSettings["PrinterName"];
         private readonly OrderManageModel _orderModel;
         private readonly AccountManagementModel _accountModel;
         private readonly FirstWeightModel firstWeightModel;
@@ -204,7 +205,7 @@ namespace ServerSide.Pages_Client_Site
                 ProductNamez = orderManageModel.ProductNamez,
                 QcCode = orderManageModel.QcCode
             };
-            ThermalPrinter printer = new ThermalPrinter();
+            ThermalPrinter printer = new ThermalPrinter(printerName);
             if (!printer.PrintPage(printerModel))
                 MessageBox.Show("Error print thermal : " + printer.Error + "\n Please print again", "Printer thermal");
         }
