@@ -1,8 +1,13 @@
 ﻿using ESC_POS_USB_NET.Enums;
 using ESC_POS_USB_NET.Printer;
+using Newtonsoft.Json;
+using Serilog;
+using ServerSide.Functions;
+using ServerSide.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
@@ -19,63 +24,21 @@ namespace ServerSide.Pages_Test
         {
             InitializeComponent();
 
-            contextMenu = new ContextMenuStrip();
-            contextMenu.Items.Add("ออก", null, OnExit);
-            contextMenu.Items.Add("เปิด", null, OnLoad);
-
-            // สร้างไอคอนใน System Tray
-            notifyIcon = new NotifyIcon();
-            notifyIcon.Text = "My Desktop App";
-            notifyIcon.Icon = new System.Drawing.Icon("D:\\image\\mainback.ico"); // ใช้ .ico เท่านั้น
-            notifyIcon.ContextMenuStrip = contextMenu;
-            notifyIcon.Visible = true;
+            printerName = ConfigurationManager.AppSettings["PrinterName"];
+            encodingPage = "TIS-620";
 
             // ไม่แสดงฟอร์มหลัก
-            this.ShowInTaskbar = false;
-            this.WindowState = FormWindowState.Minimized;
-            this.Visible = false;
+            //this.ShowInTaskbar = false;
+            //this.WindowState = FormWindowState.Minimized;
+            //this.Visible = false;
         }
 
+        private readonly string printerName;
+        /// <summary>
+        /// ต้องใช้ TIS-620 เพื่อให้ปริ้นเตอร์รองรับภาษาไทย
+        /// </summary>
+        private readonly string encodingPage;
 
-        private void OnExit(object sender, EventArgs e)
-        {
-
-        }
-
-        private void OnLoad(object sender, EventArgs e)
-        {
-            this.ShowInTaskbar = true;
-            this.WindowState = FormWindowState.Normal;
-            this.Visible = true;
-        }
-
-        private NotifyIcon notifyIcon;
-        private ContextMenuStrip contextMenu;
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            Font header = new Font("Tahoma", 12, FontStyle.Bold);
-            Font detail = new Font("Tahoma", 8, FontStyle.Regular);
-            Font SubHeader = new Font("Tahoma", 8, FontStyle.Bold);
-            e.Graphics.DrawImage(pictureBox2.Image, 70, 5, 150, 100);
-            e.Graphics.DrawString("บัตรขนสินค้าออกขาย", header, Brushes.Black, 10, 120);
-            e.Graphics.DrawString("ทะเบียนรถ : ผก-1932", detail, Brushes.Black, 10, 160);
-            e.Graphics.DrawString("เลขที่ชั่ง : OR680624-1", detail, Brushes.Black, 10, 180);
-            e.Graphics.DrawString("บริษัทขนส่ง : OR680624-1", detail, Brushes.Black, 10, 200);
-            e.Graphics.DrawString("ผู้ขับรถ : OR680624-1", detail, Brushes.Black, 10, 220);
-            string date = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss", System.Globalization.CultureInfo.CreateSpecificCulture("TH-th"));
-            e.Graphics.DrawString($"วันที่พิมพ์ : {date}", detail, Brushes.Black, 10, 240);
-            e.Graphics.DrawString($"สินค้า : ถ่ายหินพิเศษ", detail, Brushes.Black, 10, 280);
-            e.Graphics.DrawString($"สถานีต้นทาง", SubHeader, Brushes.Black, 10, 320);
-            e.Graphics.DrawString($"โกดัง BBE1 ตำแหน่ง B1", detail, Brushes.Black, 10, 340);
-            e.Graphics.DrawString($"สถานีปลายทาง", SubHeader, Brushes.Black, 10, 380);
-            e.Graphics.DrawString($"บ.ปูนซีเมนต์เอเชีย จำกัด (มหาชน)", detail, Brushes.Black, 10, 400);
-            e.Graphics.DrawString($"พนักงานออกบัตร : กรินทร์", detail, Brushes.Black, 10, 440);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -143,50 +106,20 @@ namespace ServerSide.Pages_Test
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Printer printer = new Printer("EPSON TM-82X", "TIS-620");
-            //--------------- Header
-            printer.AlignCenter();
-            printer.BoldMode("TEST PAGE FOR CUSTOMER");
-            printer.AlignLeft();
-            printer.DoubleWidth3();
-            //--------------- Body
-            Bitmap bitmap = new Bitmap(pictureBox2.Image, 2500, 1200);
-            printer.Image(bitmap);
-            printer.NewLines(2);
-            printer.AlignCenter();
-            printer.DoubleWidth3();
-            printer.Append("บัตรขนสินค้าออกขาย");
-            printer.NewLines(3);
-            printer.AlignLeft();
-            printer.DoubleWidth2();
-            printer.Append("ทะเบียนรถ : ผก-1932");
-            printer.NewLines(3);
-            printer.NormalWidth();
-            printer.Append(" เลขที่ชั่ง : ORDER680626-1");
-            printer.Append(" เลขที่ใบงาน : JB680626-1");
-            printer.Append(" บ.ขนส่ง : ไทยเครื่องชั่ง ทรานสปอตส์");
-            printer.Append(" ผู้ขับรถ : ไทยเครื่องชั่ง Driver");
-            printer.Append(" วันเวลาที่พิมพ์ : " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss", System.Globalization.CultureInfo.CreateSpecificCulture("TH-th")));
-            printer.NewLines(3);
-            printer.Append("สินค้า : Loadcell 3 ตัว");
-            printer.NewLines(3);
-            printer.DoubleWidth2();
-            printer.Append("สถานีต้นทาง");
-            printer.NormalWidth();
-            printer.Append("ไทยเครื่องชั่งสำนักงานใหม่ กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก");
-            printer.NewLines(2);
-            printer.DoubleWidth2();
-            printer.Append("สถานีปลายทาง");
-            printer.NormalWidth();
-            printer.Append("ไทยเครื่องชั่ง สาขา เชียงใหม่ กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก");
-            printer.NewLines(3);
-            printer.Append("พนักงานออกบัตร : Karin techarattanayuenyong");
 
-            //-------------- Footer
-            printer.Separator();
-            printer.FullPaperCut();
-            printer.PrintDocument();
-            //  printer.Append(Encoding.GetEncoding("TIS-620").GetBytes("ทดสอบของลูกค้า"));
+            ThermalPrinterModel _model = new ThermalPrinterModel
+            {
+                Logo = pictureBox2.Image,
+                LicensePLate = "นฐ71-7017",
+                OrderNumber = "ORW260131-1",
+                JobNumber = "IM2511105022",
+                TransportName = "ลูกค้ามารับเอง",
+                Employee = "กรินทร์ เตชะรัตนยืนยง",
+                QcCode = "QC12312414"
+            };
+            ThermalPrinter thermalPrinter = new ThermalPrinter(comboBox1.Text);
+            thermalPrinter.PrintPage(_model);
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -223,7 +156,18 @@ namespace ServerSide.Pages_Test
 
         private void frmPrinterThermal_Load(object sender, EventArgs e)
         {
+            // ล้างข้อมูลเก่าออกก่อน
+            comboBox1.Items.Clear();
 
+            // วนลูปดึงชื่อเครื่องพิมพ์ทั้งหมดใน Windows
+            foreach (string printer in System.Drawing.Printing.PrinterSettings.InstalledPrinters)
+            {
+                comboBox1.Items.Add(printer);
+            }
+
+            // เลือกเครื่องพิมพ์เริ่มต้น (Default Printer) ให้โดยอัตโนมัติ
+            System.Drawing.Printing.PrinterSettings settings = new System.Drawing.Printing.PrinterSettings();
+            comboBox1.Text = settings.PrinterName;
         }
     }
 }
