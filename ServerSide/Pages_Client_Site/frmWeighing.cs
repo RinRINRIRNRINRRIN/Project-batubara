@@ -373,6 +373,7 @@ namespace ServerSide.Pages_Client_Site
         private async void frmWeighing_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = true;
+            guna2ControlBox1.Visible = false;
             watchdogTimer.Stop();
             lblMessageLoader.Text = "ยกเลิกเชื่อมต่อเครื่องชั่ง";
             pnMain.Visible = false;
