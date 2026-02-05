@@ -77,8 +77,8 @@ namespace ServerSide.Pages_Client_Site
                 txtNote.Enabled = false;
                 lblStatus.Text = "ประเภทชั่ง : ชั่งเข้า";
             }
-
             watchdogTimer = new System.Timers.Timer();
+            watchdogTimer.Interval = 2500;
             watchdogTimer.Elapsed += WatchdogTimer_Elapsed;
             watchdogTimer.AutoReset = false;
 
