@@ -239,6 +239,7 @@ namespace ServerSide.Pages_Client_Site
         }
         private async void frmWeighing_Load(object sender, EventArgs e)
         {
+            guna2ControlBox1.Visible = false;
             await Task.Delay(500);
             lblMessageLoader.Text = "เตรียมข้อมูลชั่งรถ";
             // กำหนดค่าข้อมูล
@@ -259,6 +260,7 @@ namespace ServerSide.Pages_Client_Site
             lblMessageLoader.Text = "สำเร็จ";
             pnLoader.Visible = false;
             pnMain.Visible = true;
+            guna2ControlBox1.Visible = true;
         }
 
         private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
@@ -343,7 +345,7 @@ namespace ServerSide.Pages_Client_Site
                         PrintThermal(_orderModel, _accountModel, pictureBox2.Image);
                         break;
                     case "Process": // second weight
-                        // check remark empty
+                                    // check remark empty
                         if (txtNote.Text == "")
                         {
                             txtNote.BorderColor = Color.Red;
@@ -352,15 +354,7 @@ namespace ServerSide.Pages_Client_Site
                                 "จะไม่สามารถกลับมาแก้ไขข้อมูลได้อีก", "Remark ว่าง", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
-                        txtNote.BorderColor = Color.Gray;
-                        txtNote.BorderThickness = 1;
-                        // Add new record weight detail
-                        if (!SaveFirstWeight())
-                            return;
-                        // print receive thermal
-                        PrintThermal(_orderModel, _accountModel, pictureBox2.Image);
-                        break;
-                    case "Process": // second weight
+
                         if (!SaveSecondWeight())
                             return;
 
