@@ -38,7 +38,6 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnLogin = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.label2 = new System.Windows.Forms.Label();
             this.gbLoader = new Guna.UI2.WinForms.Guna2GroupBox();
             this.lblMessageSERVER = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -181,17 +180,6 @@
             this.btnLogin.Text = "เข้าสู่ระบบ";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label2.ForeColor = System.Drawing.Color.Brown;
-            this.label2.Location = new System.Drawing.Point(606, 44);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 25);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Version : 1.0.0";
-            // 
             // gbLoader
             // 
             this.gbLoader.BorderColor = System.Drawing.Color.Maroon;
@@ -282,7 +270,6 @@
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.gbLoader);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox3);
@@ -318,7 +305,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2GradientButton btnLogin;
-        private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2GroupBox gbLoader;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label lblMessageSERVER;
