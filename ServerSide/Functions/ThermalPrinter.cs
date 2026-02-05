@@ -27,10 +27,8 @@ namespace ServerSide.Functions
             PrintDocument.PrintPage += PrintDocument_PrintPage;
         }
         PictureBox pictureBox2 = new PictureBox();
-        ThermalPrinterModel printerModel = new ThermalPrinterModel();
 
         PrintDocument PrintDocument = new PrintDocument();
-
 
         private readonly string printerName;
         /// <summary>
@@ -139,7 +137,7 @@ namespace ServerSide.Functions
         {
             pictureBox2.Image = _model.Logo;
             printerModel = _model;
-          
+
             PrintDocument.Print();
             return true;
             //try
