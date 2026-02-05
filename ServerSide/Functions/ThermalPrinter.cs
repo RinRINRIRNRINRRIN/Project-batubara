@@ -42,23 +42,23 @@ namespace ServerSide.Functions
             System.Drawing.Font detail = new System.Drawing.Font("Tahoma", 12, FontStyle.Regular);
             e.Graphics.DrawImage(pictureBox2.Image, 90, 5, 100, 80);
             e.Graphics.DrawString("ทะเบียนรถ", detail, Brushes.Black, 10, 120);
-            e.Graphics.DrawString($": ผก-1932", detail, Brushes.Black, xColon, 120);
+            e.Graphics.DrawString($": {printerModel.LicensePLate}", detail, Brushes.Black, xColon, 120);
             e.Graphics.DrawString("เลขที่ชั่ง", detail, Brushes.Black, 10, 140);
             e.Graphics.DrawString($": {printerModel.OrderNumber}", detail, Brushes.Black, xColon, 140);
             e.Graphics.DrawString("เลขที่ใบงาน", detail, Brushes.Black, 10, 160);
             e.Graphics.DrawString($": {printerModel.JobNumber}", detail, Brushes.Black, xColon, 160);
             e.Graphics.DrawString("บริษัท(ลูกค้า)", detail, Brushes.Black, 10, 180);
-            e.Graphics.DrawString($": {printerModel.TransportName}", detail, Brushes.Black, xColon, 180);
+            e.Graphics.DrawString($": {printerModel.Customer}", detail, Brushes.Black, 10, 200);
             string date = DateTime.Now.ToString("dd/MM/yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("TH-th"));
             string time = DateTime.Now.ToString("HH:mm:ss", System.Globalization.CultureInfo.CreateSpecificCulture("TH-th"));
-            e.Graphics.DrawString($"วันที่พิมพ์", detail, Brushes.Black, 10, 220);
-            e.Graphics.DrawString($": {date}", detail, Brushes.Black, xColon, 220);
-            e.Graphics.DrawString($": {time}", detail, Brushes.Black, xColon, 240);
-            e.Graphics.DrawString($"QC Code ", detail, Brushes.Black, 10, 280);
-            e.Graphics.DrawString($"{printerModel.QcCode}", detail, Brushes.Black, 10, 300);
-            e.Graphics.DrawString($"พนักงานออกบัตร :", detail, Brushes.Black, 10, 340);
-            e.Graphics.DrawString($"{printerModel.Employee}", detail, Brushes.Black, 10, 360);
-            e.Graphics.DrawString($"-----------------------------------------------------", detail, Brushes.Black, 10, 400);
+            e.Graphics.DrawString($"วันที่พิมพ์", detail, Brushes.Black, 10, 240);
+            e.Graphics.DrawString($": {date}", detail, Brushes.Black, xColon, 260);
+            e.Graphics.DrawString($": {time}", detail, Brushes.Black, xColon, 280);
+            e.Graphics.DrawString($"QC Code ", detail, Brushes.Black, 10, 300);
+            e.Graphics.DrawString($"{printerModel.QcCode}", detail, Brushes.Black, 10, 320);
+            e.Graphics.DrawString($"พนักงานออกบัตร :", detail, Brushes.Black, 10, 360);
+            e.Graphics.DrawString($"{printerModel.Employee}", detail, Brushes.Black, 10, 380);
+            e.Graphics.DrawString($"-----------------------------------------------------", detail, Brushes.Black, 10, 420);
             //  e.Graphics.DrawString($"บ.ปูนซีเมนต์เอเชีย จำกัด (มหาชน)", detail, Brushes.Black, 10, 400);
             //  e.Graphics.DrawString($"พนักงานออกบัตร : กรินทร์", detail, Brushes.Black, 10, 440);
         }
@@ -70,9 +70,11 @@ namespace ServerSide.Functions
         {
             try
             {
+                string json = JsonConvert.SerializeObject(_model);
+                Log.Information("Parameter print thermal");
+                Log.Information(json);
                 pictureBox2.Image = _model.Logo;
                 printerModel = _model;
-
                 PrintDocument.Print();
             }
             catch (Exception ex)

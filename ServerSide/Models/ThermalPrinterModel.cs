@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Server;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace ServerSide.Models
         public string OrderNumber { get; set; }
         public string JobNumber { get; set; }
         public string TransportName { get; set; }
+        public string Customer { get; set; }
         public string DriverName { get; set; }
         public string StartStationName { get; set; }
         public string EndStationName { get; set; }
@@ -21,6 +23,6 @@ namespace ServerSide.Models
 
         public string ProductNamez { get; set; }
 
-       public string QcCode { get; set; }
+        public string QcCode { get; set; }
     }
 }

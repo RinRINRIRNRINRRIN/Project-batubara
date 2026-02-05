@@ -198,6 +198,7 @@ namespace ServerSide.Pages_Client_Site
                 OrderNumber = orderManageModel.OrderNumber,
                 JobNumber = orderManageModel.JobNumber,
                 TransportName = orderManageModel.TransportName,
+                Customer = orderManageModel.CustomerName,
                 DriverName = orderManageModel.DriverName,
                 EndStationName = orderManageModel.EndStationName,
                 StartStationName = orderManageModel.StartStationName,
@@ -335,7 +336,7 @@ namespace ServerSide.Pages_Client_Site
                 switch (_orderModel.Status)
                 {
                     case "Planning": // fristweight
-                       
+
                         txtNote.BorderColor = Color.Gray;
                         txtNote.BorderThickness = 1;
                         // Add new record weight detail
