@@ -29,7 +29,7 @@ namespace ServerSide.Functions
         PictureBox pictureBox2 = new PictureBox();
 
         PrintDocument PrintDocument = new PrintDocument();
-
+        private ThermalPrinterModel printerModel;
         private readonly string printerName;
         /// <summary>
         /// ต้องใช้ TIS-620 เพื่อให้ปริ้นเตอร์รองรับภาษาไทย
@@ -39,31 +39,25 @@ namespace ServerSide.Functions
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
             int xColon = 110;
-            System.Drawing.Font header = new System.Drawing.Font("Tahoma", 12, FontStyle.Bold);
             System.Drawing.Font detail = new System.Drawing.Font("Tahoma", 12, FontStyle.Regular);
-            System.Drawing.Font SubHeader = new System.Drawing.Font("Tahoma", 8, FontStyle.Bold);
             e.Graphics.DrawImage(pictureBox2.Image, 90, 5, 100, 80);
-            //e.Graphics.DrawString("บัตรขนสินค้าออกขาย", header, Brushes.Black, 10, 120);
             e.Graphics.DrawString("ทะเบียนรถ", detail, Brushes.Black, 10, 120);
-            e.Graphics.DrawString(": ผก-1932", detail, Brushes.Black, xColon, 120);
+            e.Graphics.DrawString($": ผก-1932", detail, Brushes.Black, xColon, 120);
             e.Graphics.DrawString("เลขที่ชั่ง", detail, Brushes.Black, 10, 140);
-            e.Graphics.DrawString(": OR680624-1", detail, Brushes.Black, xColon, 140);
+            e.Graphics.DrawString($": {printerModel.OrderNumber}", detail, Brushes.Black, xColon, 140);
             e.Graphics.DrawString("เลขที่ใบงาน", detail, Brushes.Black, 10, 160);
-            e.Graphics.DrawString(": IMR23425", detail, Brushes.Black, xColon, 160);
+            e.Graphics.DrawString($": {printerModel.JobNumber}", detail, Brushes.Black, xColon, 160);
             e.Graphics.DrawString("บริษัท(ลูกค้า)", detail, Brushes.Black, 10, 180);
-            e.Graphics.DrawString(": ไทยเครื่องช่ัง", detail, Brushes.Black, xColon, 180);
-            //  e.Graphics.DrawString("ผู้ขับรถ : OR680624-1", detail, Brushes.Black, 10, 220);
+            e.Graphics.DrawString($": {printerModel.TransportName}", detail, Brushes.Black, xColon, 180);
             string date = DateTime.Now.ToString("dd/MM/yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("TH-th"));
             string time = DateTime.Now.ToString("HH:mm:ss", System.Globalization.CultureInfo.CreateSpecificCulture("TH-th"));
             e.Graphics.DrawString($"วันที่พิมพ์", detail, Brushes.Black, 10, 220);
             e.Graphics.DrawString($": {date}", detail, Brushes.Black, xColon, 220);
             e.Graphics.DrawString($": {time}", detail, Brushes.Black, xColon, 240);
-            //    e.Graphics.DrawString($"สินค้า : ถ่ายหินพิเศษ", detail, Brushes.Black, 10, 280);
             e.Graphics.DrawString($"QC Code ", detail, Brushes.Black, 10, 280);
-            e.Graphics.DrawString($"123/32-22/2/32/222/2323232", detail, Brushes.Black, 10, 300);
-            //   e.Graphics.DrawString($"สถานีต้นทาง", SubHeader, Brushes.Black, 10, 320);
+            e.Graphics.DrawString($"{printerModel.QcCode}", detail, Brushes.Black, 10, 300);
             e.Graphics.DrawString($"พนักงานออกบัตร :", detail, Brushes.Black, 10, 340);
-            e.Graphics.DrawString($"กรินทร์ เตชะรัตนยืนยง", detail, Brushes.Black, 10, 360);
+            e.Graphics.DrawString($"{printerModel.Employee}", detail, Brushes.Black, 10, 360);
             e.Graphics.DrawString($"-----------------------------------------------------", detail, Brushes.Black, 10, 400);
             //  e.Graphics.DrawString($"บ.ปูนซีเมนต์เอเชีย จำกัด (มหาชน)", detail, Brushes.Black, 10, 400);
             //  e.Graphics.DrawString($"พนักงานออกบัตร : กรินทร์", detail, Brushes.Black, 10, 440);
@@ -74,10 +68,18 @@ namespace ServerSide.Functions
 
         public bool PrintPage(ThermalPrinterModel _model)
         {
-            pictureBox2.Image = _model.Logo;
-            printerModel = _model;
+            try
+            {
+                pictureBox2.Image = _model.Logo;
+                printerModel = _model;
 
-            PrintDocument.Print();
+                PrintDocument.Print();
+            }
+            catch (Exception ex)
+            {
+                Log.Error("ThermalPrinter | PrintPage : " + ex.Message);
+                return false;
+            }
             return true;
         }
     }
