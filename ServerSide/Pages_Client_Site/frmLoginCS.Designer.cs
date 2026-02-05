@@ -44,6 +44,7 @@
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.msg = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.lblVersion = new System.Windows.Forms.Label();
+            this.btnExit = new Guna.UI2.WinForms.Guna2GradientButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbLoader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -72,7 +73,7 @@
             this.gbLoader.CustomBorderThickness = new System.Windows.Forms.Padding(0);
             this.gbLoader.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbLoader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.gbLoader.Location = new System.Drawing.Point(382, 172);
+            this.gbLoader.Location = new System.Drawing.Point(377, 172);
             this.gbLoader.Name = "gbLoader";
             this.gbLoader.Size = new System.Drawing.Size(345, 78);
             this.gbLoader.TabIndex = 18;
@@ -122,16 +123,16 @@
             this.btnLogin.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnLogin.Enabled = false;
-            this.btnLogin.FillColor = System.Drawing.Color.White;
-            this.btnLogin.FillColor2 = System.Drawing.Color.White;
+            this.btnLogin.FillColor = System.Drawing.Color.Brown;
+            this.btnLogin.FillColor2 = System.Drawing.Color.Brown;
             this.btnLogin.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.ForeColor = System.Drawing.Color.Brown;
+            this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.btnLogin.HoverState.FillColor = System.Drawing.Color.Brown;
             this.btnLogin.HoverState.FillColor2 = System.Drawing.Color.Maroon;
-            this.btnLogin.Location = new System.Drawing.Point(466, 256);
+            this.btnLogin.Location = new System.Drawing.Point(500, 256);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(180, 44);
+            this.btnLogin.Size = new System.Drawing.Size(222, 44);
             this.btnLogin.TabIndex = 16;
             this.btnLogin.Text = "เข้าสู่ระบบ";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -174,7 +175,7 @@
             this.txtPassword.Font = new System.Drawing.Font("Athiti", 12F);
             this.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPassword.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtPassword.IconLeft")));
-            this.txtPassword.Location = new System.Drawing.Point(421, 208);
+            this.txtPassword.Location = new System.Drawing.Point(416, 208);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PlaceholderText = "รหัสผ่าน";
@@ -199,7 +200,7 @@
             this.txtUsername.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtUsername.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtUsername.IconLeft")));
-            this.txtUsername.Location = new System.Drawing.Point(421, 164);
+            this.txtUsername.Location = new System.Drawing.Point(416, 164);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PlaceholderText = "ชื่อผู้ใช้";
@@ -215,7 +216,7 @@
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(367, 3);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(363, 167);
+            this.pictureBox2.Size = new System.Drawing.Size(363, 153);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 11;
             this.pictureBox2.TabStop = false;
@@ -241,9 +242,36 @@
             this.lblVersion.AutoSize = true;
             this.lblVersion.Location = new System.Drawing.Point(366, 306);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(71, 25);
+            this.lblVersion.Size = new System.Drawing.Size(77, 25);
             this.lblVersion.TabIndex = 19;
-            this.lblVersion.Text = "uat 1.0.2";
+            this.lblVersion.Text = "lblVersion";
+            // 
+            // btnExit
+            // 
+            this.btnExit.Animated = true;
+            this.btnExit.BorderColor = System.Drawing.Color.Maroon;
+            this.btnExit.BorderRadius = 6;
+            this.btnExit.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnExit.BorderThickness = 1;
+            this.btnExit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnExit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnExit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnExit.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnExit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnExit.Enabled = false;
+            this.btnExit.FillColor = System.Drawing.Color.White;
+            this.btnExit.FillColor2 = System.Drawing.Color.White;
+            this.btnExit.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.Brown;
+            this.btnExit.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnExit.HoverState.FillColor = System.Drawing.Color.Brown;
+            this.btnExit.HoverState.FillColor2 = System.Drawing.Color.Maroon;
+            this.btnExit.Location = new System.Drawing.Point(377, 256);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(117, 44);
+            this.btnExit.TabIndex = 20;
+            this.btnExit.Text = "ปิดโปรแกรม";
+            this.btnExit.Click += new System.EventHandler(this.guna2GradientButton1_Click);
             // 
             // frmLoginCS
             // 
@@ -251,6 +279,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(735, 335);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.gbLoader);
             this.Controls.Add(this.label2);
@@ -295,5 +324,6 @@
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private Guna.UI2.WinForms.Guna2MessageDialog msg;
         private System.Windows.Forms.Label lblVersion;
+        private Guna.UI2.WinForms.Guna2GradientButton btnExit;
     }
 }

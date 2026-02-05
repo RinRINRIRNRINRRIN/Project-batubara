@@ -45,6 +45,7 @@ namespace ServerSide.Pages_Client_Site
                 btnLogin.Enabled = true;
                 gbLoader.Visible = false;
                 btnLogin.Enabled = true;
+                btnExit.Enabled = true;
             }
             else
             {
@@ -106,6 +107,11 @@ namespace ServerSide.Pages_Client_Site
 
             }
 
+        }
+
+        private void guna2GradientButton1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

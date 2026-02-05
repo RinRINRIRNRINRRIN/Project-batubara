@@ -43,6 +43,7 @@ namespace ServerSide
                 lblMessageSERVER.Text = "เชื่อมต่อฐานข้อมูลสำเร็จ";
                 btnLogin.Enabled = true;
                 gbLoader.Visible = false;
+                                btnExit.Enabled = true;
             }
             else
             {
@@ -110,6 +111,11 @@ namespace ServerSide
 
             }
 
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
