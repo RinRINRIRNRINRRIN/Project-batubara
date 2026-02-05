@@ -333,6 +333,16 @@ namespace ServerSide.Pages_Client_Site
                 switch (_orderModel.Status)
                 {
                     case "Planning": // fristweight
+                       
+                        txtNote.BorderColor = Color.Gray;
+                        txtNote.BorderThickness = 1;
+                        // Add new record weight detail
+                        if (!SaveFirstWeight())
+                            return;
+                        // print receive thermal
+                        PrintThermal(_orderModel, _accountModel, pictureBox2.Image);
+                        break;
+                    case "Process": // second weight
                         // check remark empty
                         if (txtNote.Text == "")
                         {
